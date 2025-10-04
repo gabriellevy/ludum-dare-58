@@ -3,7 +3,7 @@ import {devant, fond, persoMarche} from "../donnees/images";
 
 function Decor() {
     const [scrollPosition, setScrollPosition] = useState<number>(0);
-    const [characterPosition, setCharacterPosition] = useState<{ x: number; y: number }>({ x: 100, y: 170 });
+    const [characterPosition/*, setCharacterPosition*/] = useState<{ x: number; y: number }>({ x: 100, y: 170 });
     const containerRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
