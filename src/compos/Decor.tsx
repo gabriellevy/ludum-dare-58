@@ -1,13 +1,13 @@
 import {useEffect, useRef, useState} from "react";
-import fond from '../images/fond.jpg';
-import devant from '../images/devant.png';
+import {devant, fond} from "../donnees/images";
 
 function Decor() {
-    const [scrollPosition, setScrollPosition] = useState(0);
-    const containerRef = useRef(null);
+    const [scrollPosition, setScrollPosition] = useState<number>(0);
+    const containerRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
         const container = containerRef.current;
+        if (!container) return;
         const speed = 2; // Vitesse de défilement
 
         const handleScroll = () => {
