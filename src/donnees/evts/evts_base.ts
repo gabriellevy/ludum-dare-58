@@ -1,13 +1,16 @@
 import {GroupeEvts} from "../../types/Evt";
 import {Perso} from "../../types/Perso";
+import {Champignon, ChampignonEnum, champignons} from "../../types/Champignon";
+import {getRandomEnumValue} from "../../fonctions/aleatoire";
 
 export const evts_base: GroupeEvts = {
     evts: [
         {
-            id: "evts_base1",
+            id: "evts_trouve champignon",
             description: async (perso: Perso): Promise<string> => {
-                let texte = "Le petit train train quotidien. ";
-                return texte;
+                const champignon: Champignon = champignons[getRandomEnumValue(ChampignonEnum)];
+
+                return "You found a " + champignon.nom + ".";
             },
             conditions: (): boolean => true,
         },

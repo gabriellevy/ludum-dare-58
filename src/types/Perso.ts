@@ -1,7 +1,6 @@
 import {EvtProgramme} from "./Evt";
 import {PhaseDExecution} from "./Mode";
 
-
 export type Perso = {
     faim: number;
     distanceParcourue: number; // 0 à 10000 ?
