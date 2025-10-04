@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/ludum-dare-58/static/css/main.e6c13ad2.css",
+    "main.js": "/ludum-dare-58/static/js/main.26961657.js",
+    "static/media/devant.png": "/ludum-dare-58/static/media/devant.b67d0b0da7b4f819bde7.png",
+    "static/media/fond.jpg": "/ludum-dare-58/static/media/fond.c3564003f4029329bec3.jpg",
+    "static/media/Shiitake.png": "/ludum-dare-58/static/media/Shiitake.4371994113c1272e3e17.png",
+    "static/media/RussulaVesca.png": "/ludum-dare-58/static/media/RussulaVesca.a59eae33b8064431cd60.png",
+    "static/media/BoletusEdulis.png": "/ludum-dare-58/static/media/BoletusEdulis.738f612b517fa8839c44.png",
+    "static/media/GanodermaLucidum.png": "/ludum-dare-58/static/media/GanodermaLucidum.46dedb0f360700bf1cae.png",
+    "static/media/LactariusDeliciosus.png": "/ludum-dare-58/static/media/LactariusDeliciosus.258f77b46c887d467289.png",
+    "static/media/AmanitaMuscaria.png": "/ludum-dare-58/static/media/AmanitaMuscaria.18446f555c6bf12f8356.png",
+    "static/media/AgaricusBisporus.png": "/ludum-dare-58/static/media/AgaricusBisporus.f963ab0bd0a6aa53af18.png",
+    "static/media/MorchellaEsculenta.png": "/ludum-dare-58/static/media/MorchellaEsculenta.cff1932f919d23355135.png",
+    "static/media/CantharellusCibarius.png": "/ludum-dare-58/static/media/CantharellusCibarius.b1bbf759d4af661f663e.png",
+    "index.html": "/ludum-dare-58/index.html",
+    "main.e6c13ad2.css.map": "/ludum-dare-58/static/css/main.e6c13ad2.css.map",
+    "main.26961657.js.map": "/ludum-dare-58/static/js/main.26961657.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e6c13ad2.css",
+    "static/js/main.26961657.js"
+  ]
+}
