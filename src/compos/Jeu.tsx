@@ -8,6 +8,8 @@ import {createTheme, ThemeProvider} from "@mui/material/styles";
 import Boutons from "./Boutons";
 import AffichagePerso from "./AffichagePerso";
 import Progression from "./Progression";
+import {GameOverOverlay} from "./GameOverOverlay";
+import {initPerso} from "../App";
 
 const theme = createTheme({
     palette: {
@@ -19,11 +21,16 @@ const theme = createTheme({
 
 export default function Jeu() {
     const [afficherMenu, setAfficherMenu] = useState(true);
-    const { perso } = useContext(PersoContexte) as PersoContexteType;
+    const { perso, setPerso } = useContext(PersoContexte) as PersoContexteType;
+
+    function onRestart() {
+        setPerso({
+            ...initPerso,
+        })
+    }
 
     return (
         <ThemeProvider theme={theme}>
-            {/*TODO menu*/}
             {afficherMenu ? (
                         <Box
                             sx={{
@@ -112,6 +119,7 @@ export default function Jeu() {
                     </Grid>
                 </Grid>
             )}
+            {perso.mort && <GameOverOverlay onRestart={onRestart} />}
         </ThemeProvider>
     );
 }

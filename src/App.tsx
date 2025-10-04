@@ -4,7 +4,7 @@ import {CssBaseline} from "@mui/material";
 import {PhaseDExecution} from "./types/Mode";
 import PersoContexteProvider from "./contexte/PersoContexte";
 
-const initPerso:Perso = {
+export const initPerso:Perso = {
     faim: 5,
     distanceParcourue: 0,
     vitesse: 5,

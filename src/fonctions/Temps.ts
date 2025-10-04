@@ -3,11 +3,14 @@ import {Perso} from "../types/Perso";
 import {modifieFaim} from "./Faim";
 
 
-export function leTempsPasse(perso: Perso, executerEvt: (evtExecute: Evt, dateDejaAffichee: boolean)=>void): boolean {
-    // TODO jauger ça : vitesse etc
+export function leTempsPasse(perso: Perso, executerEvt: (evtExecute: Evt, dateDejaAffichee: boolean)=>void): void {
     const distanceQuiVaEetreParcourue = perso.vitesse;
     let distanceParcourue: number;
     // faim :
+    if (perso.faim >= 20) {
+        perso.mort = true;
+        return;
+    }
     modifieFaim(perso, 1);
 
     let evtProgrammeExecute: boolean = false;
@@ -17,7 +20,6 @@ export function leTempsPasse(perso: Perso, executerEvt: (evtExecute: Evt, dateDe
         perso.evtsProgrammes.forEach((evtProgramme: EvtProgramme)=>{
             if (evtProgramme.distance === perso.distanceParcourue) {
                 executerEvt(evtProgramme.evt, evtProgrammeExecute);
-                // TODO: ? nettoyage des evts exécutés ?? suppression de ceux dont la date est dépassée ?
                 evtProgrammeExecute = true;
             }
         })
@@ -26,5 +28,4 @@ export function leTempsPasse(perso: Perso, executerEvt: (evtExecute: Evt, dateDe
             break;
         }
     }
-    return evtProgrammeExecute;
 }
