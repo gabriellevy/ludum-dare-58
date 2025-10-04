@@ -3,6 +3,7 @@ import {PersoContexte, PersoContexteType} from "../contexte/ContexteType";
 import {PhaseDExecution} from "../types/Mode";
 import {Grid, Paper} from "@mui/material";
 import Decor from "./Decor";
+import BoucleEvts from "./BoucleEvts";
 
 export default function Jeu() {
     const [afficherMenu, setAfficherMenu] = useState(false); // À FAIRE : passer à true à la fin
@@ -32,13 +33,13 @@ export default function Jeu() {
                     </Grid>
                     <Grid size={8}>
                         <Grid size={12}>
-                                <Decor/>
+                            <Decor/>
                         </Grid>
                         <Grid size={12}>
                         <Paper elevation={3} sx={
                             { p: 3, mt: 4, height: '40vh', overflowY: 'auto', marginTop: 0 }
                         }>
-                            boucle d'éevts ??
+                            <BoucleEvts/>
                         </Paper>
                         </Grid>
                     </Grid>

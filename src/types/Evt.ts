@@ -2,7 +2,7 @@ import {Perso} from "./Perso";
 
 export type EvtProgramme = {
     evt: Evt,
-    date: number, // date en nombre de jours depuis (l'an 0 ?)
+    distance: number, // distance à laquelle l'evt se déclenche
 }
 
 export type Evt = {
@@ -10,15 +10,12 @@ export type Evt = {
     description: (perso: Perso) => Promise<string>;  // modifie le perso et retourne la description de l'evt
     proba?: number, // élevé signifie, si les conditions sont remplies, que cet événement a beaucoup de chance de se produire. 1 est standard plutôt courant, donc valeur par défaut
     conditions?: (perso: Perso) => boolean; // est-ce que l'événement peut être appliqué au perso ou pas
-    image?: string;
 };
 
 // ce qui est affiché après que l'événement ait été exécuté
 export type EvtExecute = {
     id: string;
-    dateStr: string,
     texteFinal: string,
-    image?: string;
 }
 
 export type GroupeEvts = {
