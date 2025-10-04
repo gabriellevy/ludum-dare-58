@@ -8,9 +8,16 @@ export const evts_base: GroupeEvts = {
         {
             id: "evts_trouve champignon",
             description: async (perso: Perso): Promise<string> => {
-                const champignon: Champignon = champignons[getRandomEnumValue(ChampignonEnum)];
-                perso.champignons.push(champignon.nom);
-                return "You found a " + champignon.nom + ".";
+                const champignonTrouve: Champignon = champignons[getRandomEnumValue(ChampignonEnum)];
+                perso.champignons.push(champignonTrouve.nom);
+                let num:number = 1;
+                perso.digestion
+                    .filter((champi:Champignon) => champi.nom === ChampignonEnum.AgaricusBisporus)
+                    .forEach((_champi:Champignon) => {
+                        perso.champignons.push(champignonTrouve.nom);
+                        num++;
+                    })
+                return "You found " + num + " " + champignonTrouve.nom + ".";
             },
             conditions: (): boolean => true,
         },
