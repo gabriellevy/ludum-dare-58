@@ -1,6 +1,7 @@
 import {Evt, EvtProgramme} from "../types/Evt";
 import {Perso} from "../types/Perso";
 import {modifieFaim} from "./Faim";
+import {DISTANCE_COMPLETE} from "../donnees/ReglagesJouabilite";
 
 
 export function leTempsPasse(perso: Perso, executerEvt: (evtExecute: Evt, dateDejaAffichee: boolean)=>void): void {
@@ -27,5 +28,8 @@ export function leTempsPasse(perso: Perso, executerEvt: (evtExecute: Evt, dateDe
             // interrompt le défilement des jours
             break;
         }
+    }
+    if (perso.distanceParcourue > DISTANCE_COMPLETE && !perso.mort) {
+        perso.victoire = true;
     }
 }

@@ -83,6 +83,17 @@ export default function BoucleEvts() {
                         }),
                     };
                     executerEvt(evt);
+                }
+                if (perso.victoire) {
+                    const evt: Evt = {
+                        id: "victoire",
+                        description: () =>  new Promise((resolve) => {
+                            const texte: string = "You got out of the forest."
+                            + (perso.champignons.length > 5 ? " Et avec plein de champignons !" : "");
+                            resolve(texte);
+                        }),
+                    };
+                    executerEvt(evt);
                 } else {
                     // plus on avance dans le jeu plus ça va vite
                     setTempsRestant(perso.vitesseExecution - perso.niveau + 1);

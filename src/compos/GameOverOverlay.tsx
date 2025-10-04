@@ -2,9 +2,11 @@ import {Box, Button, Typography} from "@mui/material";
 
 interface GameOverOverlayProps {
     onRestart: () => void;
+    victoire?: boolean;
+    mort?: boolean;
 }
 
-export function GameOverOverlay ({ onRestart }: GameOverOverlayProps) {
+export function GameOverOverlay ({ onRestart, mort }: GameOverOverlayProps) {
 
     return (
         <Box
@@ -24,7 +26,7 @@ export function GameOverOverlay ({ onRestart }: GameOverOverlayProps) {
             }}
         >
             <Typography variant="h3" gutterBottom>
-                You starved to death in the dark forest...
+                {mort ? "You starved to death in the dark forest..." : "You managed to leave the forest !"}
             </Typography>
             <Button
                 variant="contained"

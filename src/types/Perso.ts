@@ -11,6 +11,7 @@ export type Perso = {
     evtsProgrammes: EvtProgramme[],
     vitesseExecution: number, // en secondes entre chaque événement
     mort?: boolean,
+    victoire?: boolean,
     phaseDExecution: PhaseDExecution;
     debogue: boolean;
 
