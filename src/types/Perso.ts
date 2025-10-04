@@ -1,5 +1,6 @@
 import {EvtProgramme} from "./Evt";
 import {PhaseDExecution} from "./Mode";
+import {ChampignonEnum} from "./Champignon";
 
 export type Perso = {
     faim: number;
@@ -13,4 +14,5 @@ export type Perso = {
     // caracs gameplay visibles
     vitesse: number; // nombre de distance parcourue par tick (vitesseExecution)
     niveau:number;
+    champignons: ChampignonEnum[];
 };

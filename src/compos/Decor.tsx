@@ -31,7 +31,6 @@ function Decor() {
             }}
         >
             fsdfds
-            {/*<img src={logo} alt="logo" /> Couche 1 : Décor lointain (défile lentement) */}
             <div
                 style={{
                     position: 'absolute',
@@ -44,7 +43,6 @@ function Decor() {
                     willChange: 'transform',
                 }}
             />
-            {/* Couche 2 : Décor proche (défile plus vite) */}
             <div
                 style={{
                     position: 'absolute',

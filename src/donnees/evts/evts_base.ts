@@ -9,7 +9,7 @@ export const evts_base: GroupeEvts = {
             id: "evts_trouve champignon",
             description: async (perso: Perso): Promise<string> => {
                 const champignon: Champignon = champignons[getRandomEnumValue(ChampignonEnum)];
-
+                perso.champignons.push(champignon.nom);
                 return "You found a " + champignon.nom + ".";
             },
             conditions: (): boolean => true,

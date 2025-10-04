@@ -14,6 +14,7 @@ const initPerso:Perso = {
     mort: false,
     phaseDExecution: PhaseDExecution.marche, // TODO : mettre sur menu ?
     debogue: true, // TODO : passer ça à false à la fin !!
+    champignons: [],
 }
 
 function App() {
