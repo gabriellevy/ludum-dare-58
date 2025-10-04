@@ -1,7 +1,7 @@
 import React, {useContext, useState} from "react";
 import {PersoContexte, PersoContexteType} from "../contexte/ContexteType";
 import {PhaseDExecution} from "../types/Mode";
-import {Box, Button, Grid, Paper, Typography} from "@mui/material";
+import {Box, Button, Grid, Typography} from "@mui/material";
 import Decor from "./Decor";
 import BoucleEvts from "./BoucleEvts";
 import {createTheme, ThemeProvider} from "@mui/material/styles";
@@ -77,35 +77,27 @@ export default function Jeu() {
             ) : perso.phaseDExecution === PhaseDExecution.marche && (
                 <Grid container spacing={3} sx={{ height: '100vh', width: '100vw' }}>
                     <Grid size={4}>
-                        <Paper elevation={3} sx={
-                            {
-                                p: 3,
-                                mt: 4,
-                                height: '100vh',
-                                overflowY: 'auto',
-                                position: 'sticky',
-                                top: 0,
-                                marginTop: 0,
-                                padding: '0px',
-                            }
-                        }>
                             affichage du perso
-                        </Paper>
                     </Grid>
                     <Grid size={8}>
                         <Grid size={12}>
                             <Decor/>
                         </Grid>
                         <Grid size={12}>
-                        <Paper elevation={3} sx={
-                            { p: 3, mt: 4, height: '40vh', overflowY: 'auto', marginTop: 0 }
-                        }>
-                            <BoucleEvts/>
-                        </Paper>
+                            <Box
+                                sx={{
+                                    alignItems: 'center',
+                                    backgroundColor: '#71f178', // Fond vert
+                                    flexDirection: 'column',
+                                    gap: 4,
+                                }}
+                            >
+                                <BoucleEvts/>
+                            </Box>
                         </Grid>
                     </Grid>
                 </Grid>
             )}
-                    </ThemeProvider>
+        </ThemeProvider>
     );
 }
