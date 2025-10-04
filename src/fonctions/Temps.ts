@@ -1,15 +1,18 @@
 import {Evt, EvtProgramme} from "../types/Evt";
 import {Perso} from "../types/Perso";
+import {modifieFaim} from "./Faim";
 
 
 export function leTempsPasse(perso: Perso, executerEvt: (evtExecute: Evt, dateDejaAffichee: boolean)=>void): boolean {
     // TODO jauger ça : vitesse etc
-    const joursAAjouter = perso.vitesse;
-    let joursRellementAjoutes: number;
+    const distanceQuiVaEetreParcourue = perso.vitesse;
+    let distanceParcourue: number;
+    // faim :
+    modifieFaim(perso, 1);
 
     let evtProgrammeExecute: boolean = false;
     // vérifier toutes les dates au cas où un evt "forcé" devrait avoir lieu ici avant
-    for (joursRellementAjoutes= 0 ; joursRellementAjoutes <= joursAAjouter ; ++joursRellementAjoutes) {
+    for (distanceParcourue= 0 ; distanceParcourue <= distanceQuiVaEetreParcourue ; ++distanceParcourue) {
         perso.distanceParcourue = perso.distanceParcourue + 1;
         perso.evtsProgrammes.forEach((evtProgramme: EvtProgramme)=>{
             if (evtProgramme.distance === perso.distanceParcourue) {

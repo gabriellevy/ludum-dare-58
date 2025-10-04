@@ -6,6 +6,7 @@ import Decor from "./Decor";
 import BoucleEvts from "./BoucleEvts";
 import {createTheme, ThemeProvider} from "@mui/material/styles";
 import Boutons from "./Boutons";
+import AffichagePerso from "./AffichagePerso";
 
 const theme = createTheme({
     palette: {
@@ -78,7 +79,7 @@ export default function Jeu() {
             ) : perso.phaseDExecution === PhaseDExecution.marche && (
                 <Grid container spacing={3} sx={{ height: '100vh', width: '100vw' }}>
                     <Grid size={4}>
-                            affichage du perso
+                        <AffichagePerso />
                     </Grid>
                     <Grid size={8}>
                         <Box
