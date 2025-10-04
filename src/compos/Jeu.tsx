@@ -5,6 +5,7 @@ import {Box, Button, Grid, Typography} from "@mui/material";
 import Decor from "./Decor";
 import BoucleEvts from "./BoucleEvts";
 import {createTheme, ThemeProvider} from "@mui/material/styles";
+import Boutons from "./Boutons";
 
 const theme = createTheme({
     palette: {
@@ -91,6 +92,13 @@ export default function Jeu() {
                             }}
                         >
                             <Decor/>
+                            <Box sx={{
+                                padding: 1,
+                                flexGrow: 1, // Prend l'espace restant
+                                overflow: 'auto', // Active le scroll uniquement ici
+                            }}>
+                                <Boutons/>
+                            </Box>
                             <Box sx={{
                                 padding: 1,
                                 flexGrow: 1, // Prend l'espace restant

@@ -1,10 +1,9 @@
 import {useCallback, useContext, useEffect, useRef, useState} from 'react';
 import {Evt, EvtExecute, filtrerEtPreparerEvts} from "../types/Evt";
-import {Avatar, Box, Button, Tooltip, Typography} from '@mui/material';
+import {Box, Button, Typography} from '@mui/material';
 import {PersoContexte, PersoContexteType} from "../contexte/ContexteType";
 import {leTempsPasse} from "../fonctions/Temps";
 import {evts_base} from "../donnees/evts/evts_base";
-import {Champignon, ChampignonEnum, champignons} from "../types/Champignon";
 
 let demarre:boolean = false; // le destin a été lancé et est en cours
 
@@ -163,19 +162,6 @@ export default function BoucleEvts() {
                         </Button>
                 </>
             )}
-            {
-                perso.champignons.map((champiEnum:ChampignonEnum) => {
-                    const champi: Champignon = champignons[champiEnum];
-                    return (<Tooltip title={champi.nom}>
-                                <Button
-                                    variant="contained"
-                                    color="primary"
-                                    startIcon={<Avatar src={champi.imageSrc} />}
-                                />
-                        </Tooltip>
-                )}
-                )
-            }
             <div ref={messagesEndRef} />
         </Box>
     );
