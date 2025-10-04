@@ -1,8 +1,9 @@
 {
   "files": {
     "main.css": "/ludum-dare-58/static/css/main.e6c13ad2.css",
-    "main.js": "/ludum-dare-58/static/js/main.26961657.js",
+    "main.js": "/ludum-dare-58/static/js/main.a1308065.js",
     "static/media/devant.png": "/ludum-dare-58/static/media/devant.b67d0b0da7b4f819bde7.png",
+    "static/media/perso.webp": "/ludum-dare-58/static/media/perso.11c66e7e31fd24eec4cd.webp",
     "static/media/fond.jpg": "/ludum-dare-58/static/media/fond.c3564003f4029329bec3.jpg",
     "static/media/Shiitake.png": "/ludum-dare-58/static/media/Shiitake.4371994113c1272e3e17.png",
     "static/media/RussulaVesca.png": "/ludum-dare-58/static/media/RussulaVesca.a59eae33b8064431cd60.png",
@@ -13,12 +14,13 @@
     "static/media/AgaricusBisporus.png": "/ludum-dare-58/static/media/AgaricusBisporus.f963ab0bd0a6aa53af18.png",
     "static/media/MorchellaEsculenta.png": "/ludum-dare-58/static/media/MorchellaEsculenta.cff1932f919d23355135.png",
     "static/media/CantharellusCibarius.png": "/ludum-dare-58/static/media/CantharellusCibarius.b1bbf759d4af661f663e.png",
+    "static/media/prend1.mp3": "/ludum-dare-58/static/media/prend1.37ce8496966b22d3ab60.mp3",
     "index.html": "/ludum-dare-58/index.html",
     "main.e6c13ad2.css.map": "/ludum-dare-58/static/css/main.e6c13ad2.css.map",
-    "main.26961657.js.map": "/ludum-dare-58/static/js/main.26961657.js.map"
+    "main.a1308065.js.map": "/ludum-dare-58/static/js/main.a1308065.js.map"
   },
   "entrypoints": [
     "static/css/main.e6c13ad2.css",
-    "static/js/main.26961657.js"
+    "static/js/main.a1308065.js"
   ]
 }
