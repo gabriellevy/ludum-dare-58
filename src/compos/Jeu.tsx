@@ -80,21 +80,16 @@ export default function Jeu() {
                             affichage du perso
                     </Grid>
                     <Grid size={8}>
-                        <Grid size={12}>
+                        <Box
+                            sx={{
+                                backgroundColor: '#71f178', // Fond vert
+                                maxHeight: '500px',
+                                height: '500px',
+                            }}
+                        >
                             <Decor/>
-                        </Grid>
-                        <Grid size={12}>
-                            <Box
-                                sx={{
-                                    alignItems: 'center',
-                                    backgroundColor: '#71f178', // Fond vert
-                                    flexDirection: 'column',
-                                    gap: 4,
-                                }}
-                            >
-                                <BoucleEvts/>
-                            </Box>
-                        </Grid>
+                            <BoucleEvts/>
+                        </Box>
                     </Grid>
                 </Grid>
             )}
