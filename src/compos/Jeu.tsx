@@ -7,6 +7,7 @@ import BoucleEvts from "./BoucleEvts";
 import {createTheme, ThemeProvider} from "@mui/material/styles";
 import Boutons from "./Boutons";
 import AffichagePerso from "./AffichagePerso";
+import Progression from "./Progression";
 
 const theme = createTheme({
     palette: {
@@ -85,7 +86,6 @@ export default function Jeu() {
                         <Box
                             sx={{
                                 backgroundColor: '#71f178', // Fond vert
-                                maxHeight: '500px',
                                 display: 'flex',
                                 flexDirection: 'column',
                                 height: '100vh', // Prend toute la hauteur de la fenêtre
@@ -93,6 +93,7 @@ export default function Jeu() {
                             }}
                         >
                             <Decor/>
+                            <Progression/>
                             <Box sx={{
                                 padding: 1,
                                 flexGrow: 1, // Prend l'espace restant

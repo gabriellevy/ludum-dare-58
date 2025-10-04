@@ -11,7 +11,7 @@ export default function Boutons() {
         let persoTmp = perso;
         champi.effet(persoTmp);
         // réduit la faim :
-        modifieFaim(perso, - 5);
+        modifieFaim(perso, - 4);
         persoTmp.champignons = [
             ...perso.champignons.slice(0, index),
             ...perso.champignons.slice(index+1, perso.champignons.length-1)

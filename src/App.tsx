@@ -10,7 +10,7 @@ const initPerso:Perso = {
     vitesse: 5,
     niveau: 1,
     evtsProgrammes: [],
-    vitesseExecution: 4,
+    vitesseExecution: 4, // nombre de secondes entre chaque evt
     mort: false,
     phaseDExecution: PhaseDExecution.marche,
     debogue: true, // TODO : passer ça à false à la fin !!
