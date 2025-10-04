@@ -2,7 +2,9 @@ import {Evt, EvtProgramme} from "../types/Evt";
 import {Perso} from "../types/Perso";
 import {modifieFaim} from "./Faim";
 import {DISTANCE_COMPLETE} from "../donnees/ReglagesJouabilite";
-import {Champignon} from "../types/Champignon";
+import {Champignon, ChampignonEnum} from "../types/Champignon";
+import {calculerVitessePerso} from "./Deplacement";
+import {compterNbDeChampisEnDigestion} from "./Champignons";
 
 export function uneSecondePasse(perso:Perso) {
     // les champignons se digèrent :
@@ -15,14 +17,16 @@ export function uneSecondePasse(perso:Perso) {
 }
 
 export function leTempsPasse(perso: Perso, executerEvt: (evtExecute: Evt, dateDejaAffichee: boolean)=>void): void {
-    const distanceQuiVaEetreParcourue = perso.vitesse;
+    const distanceQuiVaEetreParcourue = calculerVitessePerso(perso);
     let distanceParcourue: number;
     // faim :
     if (perso.faim >= 20) {
         perso.mort = true;
         return;
     }
-    modifieFaim(perso, 1);
+    // TODO : un peu violent comme effet non ?
+    const plusFaim = 1 + compterNbDeChampisEnDigestion(perso, ChampignonEnum.AmanitaMuscaria);
+    modifieFaim(perso, plusFaim);
 
     let evtProgrammeExecute: boolean = false;
     // vérifier toutes les dates au cas où un evt "forcé" devrait avoir lieu ici avant

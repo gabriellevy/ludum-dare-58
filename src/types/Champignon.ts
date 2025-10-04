@@ -46,7 +46,7 @@ export const champignons: ChampignonsObj = {
         nom: ChampignonEnum.AmanitaMuscaria,
         imageSrc: `${AmanitaMuscaria}`,
         secondesDEffet: 10,
-        description: "?????",
+        description: "50% Faster but needs more food",
         effet: () => {
             return "You ate a mushroom.";
         },
