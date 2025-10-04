@@ -23,7 +23,7 @@ export default function BoucleEvts() {
         scrollToBottom()
     }, [perso.distanceParcourue]);
 
-    const executerEvt = useCallback((evtExecute: Evt, dateDejaAffichee: boolean) => {
+    const executerEvt = useCallback((evtExecute: Evt) => {
         const texte: Promise<string> = evtExecute.description(perso);
         texte.then((texte) => {
             const nouvEvt: EvtExecute = {
@@ -45,7 +45,7 @@ export default function BoucleEvts() {
     }, [perso, setPerso]);
 
     const determinerEvtSuivant = useCallback(() => {
-        const dateDejaAffichee: boolean = leTempsPasse(perso, executerEvt);
+        leTempsPasse(perso, executerEvt);
         setPerso({
             ...perso,
         });
@@ -68,7 +68,7 @@ export default function BoucleEvts() {
                 if (evt.proba) {
                     randomProba -= evt.proba;
                     if (randomProba <= 0) {
-                        executerEvt(evt, dateDejaAffichee);
+                        executerEvt(evt);
                         return false;
                     }
                 }
@@ -80,10 +80,10 @@ export default function BoucleEvts() {
                     const evt: Evt = {
                         id: "mort",
                         description: () =>  new Promise((resolve) => {
-                            resolve("Vous êtes mort.");
+                            resolve("You are dead.");
                         }),
                     };
-                    executerEvt(evt, true);
+                    executerEvt(evt);
                 } else {
                     setTempsRestant(perso.vitesseExecution);
                 }

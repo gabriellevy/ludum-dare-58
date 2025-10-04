@@ -10,7 +10,7 @@ const initPerso:Perso = {
     vitesse: 5,
     niveau: 1,
     evtsProgrammes: [],
-    vitesseExecution: 2, // TODO : passer ça à 4 ??
+    vitesseExecution: 20, // TODO : passer ça à 4 ??
     mort: false,
     phaseDExecution: PhaseDExecution.marche, // TODO : mettre sur menu ?
     debogue: true, // TODO : passer ça à false à la fin !!
