@@ -3,7 +3,7 @@ import {Perso} from "../types/Perso";
 import {modifieFaim} from "./Faim";
 import {DISTANCE_COMPLETE} from "../donnees/ReglagesJouabilite";
 import {Champignon, ChampignonEnum} from "../types/Champignon";
-import {calculerVitessePerso} from "./Deplacement";
+import {calculerVitessePerso} from "./Perso";
 import {compterNbDeChampisEnDigestion} from "./Champignons";
 
 export function uneSecondePasse(perso:Perso) {

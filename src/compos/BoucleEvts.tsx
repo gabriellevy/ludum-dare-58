@@ -4,6 +4,7 @@ import {Box, Button, Typography} from '@mui/material';
 import {PersoContexte, PersoContexteType} from "../contexte/ContexteType";
 import {leTempsPasse, uneSecondePasse} from "../fonctions/Temps";
 import {evts_base} from "../donnees/evts/evts_base";
+import {calculerVitesseExecution} from "../fonctions/Perso";
 
 let demarre:boolean = false; // le destin a été lancé et est en cours
 
@@ -95,8 +96,7 @@ export default function BoucleEvts() {
                     };
                     executerEvt(evt);
                 } else {
-                    // plus on avance dans le jeu plus ça va vite
-                    setTempsRestant(perso.vitesseExecution - perso.niveau + 1);
+                    setTempsRestant(calculerVitesseExecution(perso));
                 }
             }
         } else {
@@ -145,7 +145,7 @@ export default function BoucleEvts() {
                 nouvEvt
             ]);
 
-            setTempsRestant(perso.vitesseExecution);
+            setTempsRestant(calculerVitesseExecution(perso));
         }
     }, [determinerEvtSuivant, perso.vitesseExecution]);
 
