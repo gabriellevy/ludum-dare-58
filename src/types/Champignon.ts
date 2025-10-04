@@ -64,7 +64,7 @@ export const champignons: ChampignonsObj = {
         nom: ChampignonEnum.CantharellusCibarius,
         imageSrc: `${CantharellusCibarius}`,
         secondesDEffet: 10,
-        description: "?????",
+        description: "Intuition : reveals the effect of all mushrooms in tooltips",
         effet: () => {
             return "You ate a mushroom.";
         },

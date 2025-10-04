@@ -1,7 +1,7 @@
 
 
 
-export const DISTANCE_COMPLETE:number = 1000;
+export const DISTANCE_COMPLETE:number = 300; // 1er niveau ??
 export const FREQUENCE_EVT:number = 4;
 
 

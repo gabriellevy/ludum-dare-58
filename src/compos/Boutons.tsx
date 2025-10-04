@@ -1,10 +1,11 @@
 import React, {useCallback, useContext} from 'react';
-import {Box, Button} from '@mui/material';
+import {Box, Button, Tooltip} from '@mui/material';
 import {PersoContexte, PersoContexteType} from "../contexte/ContexteType";
 import {Champignon, ChampignonEnum, champignons} from "../types/Champignon";
 import {modifieFaim} from "../fonctions/Faim";
 import { useSound } from 'react-sounds';
 import prend1 from '../donnees/sons/prend1.mp3';
+import {compterNbDeChampisEnDigestion} from "../fonctions/Champignons";
 
 interface BoutonsProps {
     setMessageFondu: any;
@@ -26,7 +27,7 @@ export default function Boutons({setMessageFondu}:Readonly<BoutonsProps>) {
         });
         persoTmp.champignons = [
             ...perso.champignons.slice(0, index),
-            ...perso.champignons.slice(index+1, perso.champignons.length-1)
+            ...perso.champignons.slice(index+1, perso.champignons.length)
         ];
 
         setPerso({
@@ -44,6 +45,7 @@ export default function Boutons({setMessageFondu}:Readonly<BoutonsProps>) {
                 perso.champignons.map((champiEnum:ChampignonEnum, index:number) => {
                     const champi: Champignon = champignons[champiEnum];
                     return (
+                        <Tooltip title={compterNbDeChampisEnDigestion(perso, ChampignonEnum.CantharellusCibarius) > 0 ? champi.description : ''}>
                             <Button
                                 variant="contained"
                                 color="primary"
@@ -57,9 +59,10 @@ export default function Boutons({setMessageFondu}:Readonly<BoutonsProps>) {
                                         alt={champi.nom}
                                         src={champi.imageSrc}
                                     />
-                            }
+                                }
                                 onClick={() => consommerChampi(champi, index)}
                             />
+                        </Tooltip>
                     )}
                 )
             }
