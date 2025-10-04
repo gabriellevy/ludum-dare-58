@@ -144,9 +144,9 @@ export default function BoucleEvts() {
             }}
         >
             {evtsExecutes.map((evt: EvtExecute, index: number) => (
-                        <Typography mb={2} align="left" key={"evt" + index + evt.id}>
-                            <span dangerouslySetInnerHTML={{ __html: evt.texteFinal}} />
-                        </Typography>
+                <Typography mb={2} align="left" key={"evt" + index + evt.id}>
+                    <span dangerouslySetInnerHTML={{ __html: evt.texteFinal}} />
+                </Typography>
             ))}
             {tempsRestant !== null && tempsRestant > 0 && (
                 <>

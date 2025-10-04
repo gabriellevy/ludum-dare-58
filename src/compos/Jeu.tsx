@@ -84,11 +84,19 @@ export default function Jeu() {
                             sx={{
                                 backgroundColor: '#71f178', // Fond vert
                                 maxHeight: '500px',
-                                height: '500px',
+                                display: 'flex',
+                                flexDirection: 'column',
+                                height: '100vh', // Prend toute la hauteur de la fenêtre
+                                overflow: 'hidden', // Désactive le scroll pour le parent
                             }}
                         >
                             <Decor/>
-                            <BoucleEvts/>
+                            <Box sx={{
+                                flexGrow: 1, // Prend l'espace restant
+                                overflow: 'auto', // Active le scroll uniquement ici
+                            }}>
+                                <BoucleEvts/>
+                            </Box>
                         </Box>
                     </Grid>
                 </Grid>
