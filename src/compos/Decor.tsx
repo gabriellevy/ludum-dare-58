@@ -25,7 +25,7 @@ function Decor() {
             ref={containerRef}
             style={{
                 width: '100vw',
-                height: '100vh',
+                height: '250px',
                 overflow: 'hidden',
                 position: 'relative',
             }}

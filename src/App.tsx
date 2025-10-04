@@ -1,4 +1,4 @@
-import Histoire from "./compos/Histoire";
+import Jeu from "./compos/Jeu";
 import {Perso} from "./types/Perso";
 import {CssBaseline} from "@mui/material";
 import {PhaseDExecution} from "./types/Mode";
@@ -18,7 +18,7 @@ function App() {
     <div className="App">
         <PersoContexteProvider initPerso={initPerso}>
             <CssBaseline />
-            <Histoire/>
+            <Jeu/>
         </PersoContexteProvider>
     </div>
   );

@@ -4,14 +4,14 @@ import {PhaseDExecution} from "../types/Mode";
 import {Grid, Paper} from "@mui/material";
 import Decor from "./Decor";
 
-export default function Histoire() {
+export default function Jeu() {
     const [afficherMenu, setAfficherMenu] = useState(false); // À FAIRE : passer à true à la fin
     const { perso } = useContext(PersoContexte) as PersoContexteType;
 
     return (
         <>
             {afficherMenu ? (
-                <div>youpi</div>
+                <div>A FAIRE menu</div>
             ) : perso.phaseDExecution === PhaseDExecution.marche && (
                 <Grid container spacing={3} sx={{ height: '100vh', width: '100vw' }}>
                     <Grid size={4}>
@@ -31,12 +31,16 @@ export default function Histoire() {
                         </Paper>
                     </Grid>
                     <Grid size={8}>
-                        <Decor/>
+                        <Grid size={12}>
+                                <Decor/>
+                        </Grid>
+                        <Grid size={12}>
                         <Paper elevation={3} sx={
-                            { p: 3, mt: 4, height: '100vh', overflowY: 'auto', marginTop: 0 }
+                            { p: 3, mt: 4, height: '40vh', overflowY: 'auto', marginTop: 0 }
                         }>
                             boucle d'éevts ??
                         </Paper>
+                        </Grid>
                     </Grid>
                 </Grid>
             )}
