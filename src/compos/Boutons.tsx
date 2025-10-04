@@ -1,5 +1,5 @@
 import {useCallback, useContext} from 'react';
-import {Avatar, Box, Button, Tooltip} from '@mui/material';
+import {Box, Button} from '@mui/material';
 import {PersoContexte, PersoContexteType} from "../contexte/ContexteType";
 import {Champignon, ChampignonEnum, champignons} from "../types/Champignon";
 import {modifieFaim} from "../fonctions/Faim";
@@ -25,21 +25,29 @@ export default function Boutons() {
     return (
         <Box
             sx={{
-                backgroundColor: '#39b540', // Fond vert
                 maxHeight: '200px',
             }}
         >
             {
                 perso.champignons.map((champiEnum:ChampignonEnum, index:number) => {
                     const champi: Champignon = champignons[champiEnum];
-                    return (<Tooltip title={champi.nom}>
+                    return (
                             <Button
                                 variant="contained"
                                 color="primary"
-                                startIcon={<Avatar src={champi.imageSrc} />}
+                                startIcon={
+                                    <Box
+                                        component="img"
+                                        sx={{
+                                            maxHeight: 60,
+                                            maxWidth: 60,
+                                        }}
+                                        alt={champi.nom}
+                                        src={champi.imageSrc}
+                                    />
+                            }
                                 onClick={() => consommerChampi(champi, index)}
                             />
-                        </Tooltip>
                     )}
                 )
             }
