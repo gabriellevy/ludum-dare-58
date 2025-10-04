@@ -1,6 +1,7 @@
 {
   "name": "ludum-dare-58",
   "version": "0.1.0",
+  "homepage": "https://gabriellevy.github.io/ludum-dare-58",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.14.0",
@@ -16,6 +17,8 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -43,6 +46,7 @@
     "@types/node": "^24.6.2",
     "@types/react": "^19.2.0",
     "@types/react-dom": "^19.2.0",
+    "gh-pages": "^6.3.0",
     "typescript": "^5.9.3"
   }
 }

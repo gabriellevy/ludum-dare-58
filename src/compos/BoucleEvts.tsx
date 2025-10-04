@@ -84,7 +84,8 @@ export default function BoucleEvts() {
                     };
                     executerEvt(evt);
                 } else {
-                    setTempsRestant(perso.vitesseExecution);
+                    // plus on avance dans le jeu plus ça va vite
+                    setTempsRestant(perso.vitesseExecution - perso.niveau + 1);
                 }
             }
         } else {

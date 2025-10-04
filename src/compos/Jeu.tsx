@@ -77,7 +77,7 @@ export default function Jeu() {
                         </Box>
 
             ) : perso.phaseDExecution === PhaseDExecution.marche && (
-                <Grid container spacing={3} sx={{ height: '100vh', width: '100vw' }}>
+                <Grid container sx={{ height: '100vh', width: '100vw' }}>
                     <Grid size={4}>
                         <AffichagePerso />
                     </Grid>
