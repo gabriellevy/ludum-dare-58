@@ -92,6 +92,7 @@ export default function Jeu() {
                         >
                             <Decor/>
                             <Box sx={{
+                                padding: 1,
                                 flexGrow: 1, // Prend l'espace restant
                                 overflow: 'auto', // Active le scroll uniquement ici
                             }}>
