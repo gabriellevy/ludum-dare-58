@@ -6,7 +6,11 @@ import {modifieFaim} from "../fonctions/Faim";
 import { useSound } from 'react-sounds';
 import prend1 from '../donnees/sons/prend1.mp3';
 
-export default function Boutons() {
+interface BoutonsProps {
+    setMessageFondu: any;
+}
+
+export default function Boutons({setMessageFondu}:Readonly<BoutonsProps>) {
     const { perso, setPerso } = useContext(PersoContexte) as PersoContexteType;
     const { play } = useSound(prend1);
 
@@ -14,6 +18,7 @@ export default function Boutons() {
         let persoTmp = perso;
         play();
         champi.effet(persoTmp);
+        setMessageFondu(champi.description);
         // réduit la faim :
         modifieFaim(perso, - 4);
         persoTmp.digestion.push({
@@ -27,7 +32,7 @@ export default function Boutons() {
         setPerso({
             ...persoTmp,
         });
-    }, [perso, play, setPerso]);
+    }, [perso, play, setMessageFondu, setPerso]);
 
     return (
         <Box

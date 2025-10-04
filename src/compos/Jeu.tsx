@@ -21,6 +21,7 @@ const theme = createTheme({
 
 export default function Jeu() {
     const [afficherMenu, setAfficherMenu] = useState(true);
+    const [messageFondu, setMessageFondu] = useState<string>('');
     const { perso, setPerso } = useContext(PersoContexte) as PersoContexteType;
 
     function onRestart() {
@@ -99,14 +100,14 @@ export default function Jeu() {
                                 overflow: 'hidden', // Désactive le scroll pour le parent
                             }}
                         >
-                            <Decor/>
+                            <Decor messageFondu={messageFondu}/>
                             <Progression/>
                             <Box sx={{
                                 padding: 1,
                                 flexGrow: 1, // Prend l'espace restant
                                 overflow: 'auto', // Active le scroll uniquement ici
                             }}>
-                                <Boutons/>
+                                <Boutons setMessageFondu={setMessageFondu}/>
                             </Box>
                             <Box sx={{
                                 padding: 1,

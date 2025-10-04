@@ -1,10 +1,23 @@
 import {useEffect, useRef, useState} from "react";
 import {devant, fond, persoMarche} from "../donnees/images";
 
-function Decor() {
+type FloatingText = {
+    id: number;
+    content: string;
+    x: number;
+    y: number;
+};
+
+interface DecorProps {
+    messageFondu: string,
+}
+
+function Decor({messageFondu}: Readonly<DecorProps>) {
     const [scrollPosition, setScrollPosition] = useState<number>(0);
     const [characterPosition/*, setCharacterPosition*/] = useState<{ x: number; y: number }>({ x: 100, y: 170 });
+    const [floatingTexts, setFloatingTexts] = useState<FloatingText[]>([]);
     const containerRef = useRef<HTMLDivElement>(null);
+    const textIdRef = useRef<number>(0);
 
     useEffect(() => {
         const container = containerRef.current;
@@ -37,6 +50,25 @@ function Decor() {
         return () => clearInterval(interval);
     }, []);
 
+    useEffect(() => {
+        const newText = {
+            id: textIdRef.current++,
+            content: messageFondu,
+            x: characterPosition.x + 10,
+            y: characterPosition.y - 70,
+        };
+        setFloatingTexts([...floatingTexts, newText]);
+    }, [characterPosition.x, characterPosition.y, messageFondu]);
+
+    useEffect(() => {
+        if (floatingTexts.length > 0) {
+            const timer = setTimeout(() => {
+                setFloatingTexts((prev) => prev.slice(1)); // Supprime le premier texte après animation
+            }, 1500); // Correspond à la durée de l'animation
+            return () => clearTimeout(timer);
+        }
+    }, [floatingTexts]);
+
     return (
         <div
             ref={containerRef}
@@ -47,7 +79,6 @@ function Decor() {
                 position: 'relative',
             }}
         >
-            fsdfds
             <div
                 style={{
                     position: 'absolute',
@@ -61,6 +92,25 @@ function Decor() {
                     willChange: 'transform',
                 }}
             />
+            {/* Texte flottant */}
+            {floatingTexts.map((text) => (
+                <div
+                    key={text.id}
+                    className="floating-text"
+                    style={{
+                        position: 'absolute',
+                        left: text.x,
+                        top: text.y,
+                        color: '0x000000',
+                        fontWeight: 'bold',
+                        zIndex: 5,
+                        animation: 'floatUpAndFade 2.5s ease-out forwards',
+                    }}
+                >
+                    {text.content}
+                </div>
+            ))
+            }
             {/* Personnage (entre les couches) */}
             <img
                 src={persoMarche}
@@ -88,6 +138,14 @@ function Decor() {
                     willChange: 'transform',
                 }}
             />
+            <style>
+                {
+                    `@keyframes floatUpAndFade {
+                    0% { transform: translateY(0); opacity: 1; }
+                    100% { transform: translateY(-50px); opacity: 0; }
+                    }`
+                }
+            </style>
         </div>
     );
 }
