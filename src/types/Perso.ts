@@ -1,6 +1,6 @@
 import {EvtProgramme} from "./Evt";
 import {PhaseDExecution} from "./Mode";
-import {ChampignonEnum} from "./Champignon";
+import {Champignon, ChampignonEnum} from "./Champignon";
 
 export type Perso = {
     // 0 (repus)
@@ -19,4 +19,6 @@ export type Perso = {
     vitesse: number; // nombre de distance parcourue par tick (vitesseExecution)
     niveau:number;
     champignons: ChampignonEnum[];
+    // champignons ingérés qui font de l'effet pour un temps chronométré
+    digestion: Champignon[];
 };

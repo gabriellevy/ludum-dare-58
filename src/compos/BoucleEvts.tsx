@@ -2,7 +2,7 @@ import {useCallback, useContext, useEffect, useRef, useState} from 'react';
 import {Evt, EvtExecute, filtrerEtPreparerEvts} from "../types/Evt";
 import {Box, Button, Typography} from '@mui/material';
 import {PersoContexte, PersoContexteType} from "../contexte/ContexteType";
-import {leTempsPasse} from "../fonctions/Temps";
+import {leTempsPasse, uneSecondePasse} from "../fonctions/Temps";
 import {evts_base} from "../donnees/evts/evts_base";
 
 let demarre:boolean = false; // le destin a été lancé et est en cours
@@ -116,6 +116,7 @@ export default function BoucleEvts() {
         if (tempsRestant !== null && tempsRestant > 0) {
             timeoutRef.current = setTimeout(() => {
                 setTempsRestant((prev) => (prev !== null ? prev - 1 : null));
+                uneSecondePasse(perso);
             }, 1000);
         } else if (tempsRestant === 0) {
             if (timeoutRef.current) {
@@ -128,7 +129,7 @@ export default function BoucleEvts() {
                 clearTimeout(timeoutRef.current);
             }
         };
-    }, [tempsRestant, determinerEvtSuivant]);
+    }, [tempsRestant, determinerEvtSuivant, perso]);
 
     // démarrer la boucle d'événements
     useEffect(() => {

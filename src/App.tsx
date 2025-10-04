@@ -17,6 +17,7 @@ export const initPerso:Perso = {
     phaseDExecution: PhaseDExecution.marche,
     debogue: true, // TODO : passer ça à false à la fin !!
     champignons: [],
+    digestion: [],
 }
 
 function App() {

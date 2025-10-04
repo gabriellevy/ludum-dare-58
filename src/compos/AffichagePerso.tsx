@@ -2,6 +2,7 @@ import {Box} from '@mui/material';
 import {useContext} from "react";
 import Jauge from "./Jauge";
 import {PersoContexte, PersoContexteType} from "../contexte/ContexteType";
+import {Champignon} from "../types/Champignon";
 
 export default function AffichagePerso() {
 
@@ -19,6 +20,29 @@ export default function AffichagePerso() {
         >
             Hunger :
             <Jauge value={perso.faim} />
+            {
+                perso.digestion.map((champi: Champignon) => {
+                    return (
+                        <Box>
+                            <Box
+                                component="img"
+                                sx={{
+                                    maxHeight: 60,
+                                    maxWidth: 60,
+                                }}
+                                alt={champi.nom}
+                                src={champi.imageSrc}
+                            />
+                            {
+                                champi.description
+                            }
+                            ({
+                                champi.secondesDEffet
+                            } s)
+                        </Box>
+                )
+                })
+            }
         </Box>
     );
 }

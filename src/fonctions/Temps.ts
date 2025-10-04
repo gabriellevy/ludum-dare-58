@@ -2,7 +2,17 @@ import {Evt, EvtProgramme} from "../types/Evt";
 import {Perso} from "../types/Perso";
 import {modifieFaim} from "./Faim";
 import {DISTANCE_COMPLETE} from "../donnees/ReglagesJouabilite";
+import {Champignon} from "../types/Champignon";
 
+export function uneSecondePasse(perso:Perso) {
+    // les champignons se digèrent :
+    perso.digestion.forEach((champignon: Champignon) => {
+        champignon.secondesDEffet -= 1;
+    })
+    perso.digestion = [
+        ...perso.digestion.filter((champi: Champignon) => champi.secondesDEffet > 0)
+    ]
+}
 
 export function leTempsPasse(perso: Perso, executerEvt: (evtExecute: Evt, dateDejaAffichee: boolean)=>void): void {
     const distanceQuiVaEetreParcourue = perso.vitesse;
@@ -29,6 +39,7 @@ export function leTempsPasse(perso: Perso, executerEvt: (evtExecute: Evt, dateDe
             break;
         }
     }
+
     if (perso.distanceParcourue > DISTANCE_COMPLETE && !perso.mort) {
         perso.victoire = true;
     }

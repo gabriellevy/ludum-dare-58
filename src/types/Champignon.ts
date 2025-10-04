@@ -24,7 +24,9 @@ export enum ChampignonEnum {
 export type Champignon = {
     nom: ChampignonEnum,
     effet: (perso: Perso) => string,
+    secondesDEffet: number, // temps de départ à l'ingestion, diminue ensuite
     imageSrc: string,
+    description: string,
     proba?: number,
 }
 
@@ -34,6 +36,8 @@ export const champignons: ChampignonsObj = {
     [ChampignonEnum.AgaricusBisporus]: {
         nom: ChampignonEnum.AgaricusBisporus,
         imageSrc: `${AgaricusBisporus}`,
+        secondesDEffet: 10,
+        description: "?????",
         effet: () => {
             return "You ate a mushroom.";
         },
@@ -41,6 +45,8 @@ export const champignons: ChampignonsObj = {
     [ChampignonEnum.AmanitaMuscaria]: {
         nom: ChampignonEnum.AmanitaMuscaria,
         imageSrc: `${AmanitaMuscaria}`,
+        secondesDEffet: 10,
+        description: "?????",
         effet: () => {
             return "You ate a mushroom.";
         },
@@ -48,6 +54,8 @@ export const champignons: ChampignonsObj = {
     [ChampignonEnum.BoletusEdulis]: {
         nom: ChampignonEnum.BoletusEdulis,
         imageSrc: `${BoletusEdulis}`,
+        secondesDEffet: 10,
+        description: "?????",
         effet: () => {
             return "You ate a mushroom.";
         },
@@ -55,6 +63,8 @@ export const champignons: ChampignonsObj = {
     [ChampignonEnum.CantharellusCibarius]: {
         nom: ChampignonEnum.CantharellusCibarius,
         imageSrc: `${CantharellusCibarius}`,
+        secondesDEffet: 10,
+        description: "?????",
         effet: () => {
             return "You ate a mushroom.";
         },
@@ -62,6 +72,8 @@ export const champignons: ChampignonsObj = {
     [ChampignonEnum.LactariusDeliciosus]: {
         nom: ChampignonEnum.LactariusDeliciosus,
         imageSrc: `${LactariusDeliciosus}`,
+        secondesDEffet: 10,
+        description: "?????",
         effet: () => {
             return "You ate a mushroom.";
         },
@@ -69,6 +81,8 @@ export const champignons: ChampignonsObj = {
     [ChampignonEnum.PleurotusOstreatus]: {
         nom: ChampignonEnum.PleurotusOstreatus,
         imageSrc: `${PleurotusOstreatus}`,
+        secondesDEffet: 10,
+        description: "?????",
         effet: () => {
             return "You ate a mushroom.";
         },
@@ -76,6 +90,8 @@ export const champignons: ChampignonsObj = {
     [ChampignonEnum.MorchellaEsculenta]: {
         nom: ChampignonEnum.MorchellaEsculenta,
         imageSrc: `${MorchellaEsculenta}`,
+        secondesDEffet: 10,
+        description: "?????",
         effet: () => {
             return "You ate a mushroom.";
         },
@@ -83,6 +99,8 @@ export const champignons: ChampignonsObj = {
     [ChampignonEnum.RussulaVesca]: {
         nom: ChampignonEnum.RussulaVesca,
         imageSrc: `${RussulaVesca}`,
+        secondesDEffet: 10,
+        description: "?????",
         effet: () => {
             return "You ate a mushroom.";
         },
@@ -90,6 +108,8 @@ export const champignons: ChampignonsObj = {
     [ChampignonEnum.Shiitake]: {
         nom: ChampignonEnum.Shiitake,
         imageSrc: `${Shiitake}`,
+        secondesDEffet: 10,
+        description: "?????",
         effet: () => {
             return "You ate a mushroom.";
         },
@@ -97,6 +117,8 @@ export const champignons: ChampignonsObj = {
     [ChampignonEnum.GanodermaLucidum]: {
         nom: ChampignonEnum.GanodermaLucidum,
         imageSrc: `${GanodermaLucidum}`,
+        secondesDEffet: 10,
+        description: "?????",
         effet: () => {
             return "You ate a mushroom.";
         },
