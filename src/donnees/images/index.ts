@@ -12,4 +12,7 @@ import RussulaVesca from './champis/RussulaVesca.png';
 import Shiitake from './champis/Shiitake.png';
 import GanodermaLucidum from './champis/GanodermaLucidum.png';
 
+// sons
+
+
 export { fond, devant, Shiitake, GanodermaLucidum, RussulaVesca, MorchellaEsculenta, PleurotusOstreatus, LactariusDeliciosus, CantharellusCibarius, BoletusEdulis, AgaricusBisporus, AmanitaMuscaria };

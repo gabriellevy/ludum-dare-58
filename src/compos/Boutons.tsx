@@ -1,14 +1,18 @@
-import {useCallback, useContext} from 'react';
+import React, {useCallback, useContext} from 'react';
 import {Box, Button} from '@mui/material';
 import {PersoContexte, PersoContexteType} from "../contexte/ContexteType";
 import {Champignon, ChampignonEnum, champignons} from "../types/Champignon";
 import {modifieFaim} from "../fonctions/Faim";
+import { useSound } from 'react-sounds';
+import prend1 from '../donnees/sons/prend1.mp3';
 
 export default function Boutons() {
     const { perso, setPerso } = useContext(PersoContexte) as PersoContexteType;
+    const { play } = useSound(prend1);
 
     const consommerChampi = useCallback((champi: Champignon, index:number) => {
         let persoTmp = perso;
+        play();
         champi.effet(persoTmp);
         // réduit la faim :
         modifieFaim(perso, - 4);
@@ -21,7 +25,7 @@ export default function Boutons() {
         setPerso({
             ...persoTmp,
         });
-    }, [perso, setPerso]);
+    }, [perso, play, setPerso]);
 
     return (
         <Box
