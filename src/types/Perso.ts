@@ -7,7 +7,7 @@ export type Perso = {
     // à 20 (mort de faim)
     // -1 par tick, +6 par champi (??)
     faim: number;
-    distanceParcourue: number; // 0 à 10000 ?
+    distanceParcourue: number; // 0 à DISTANCE_COMPLETE
     evtsProgrammes: EvtProgramme[],
     vitesseExecution: number, // en secondes entre chaque événement
     mort?: boolean,
