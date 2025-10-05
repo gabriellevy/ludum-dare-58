@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/ludum-dare-58/static/css/main.e6c13ad2.css",
-    "main.js": "/ludum-dare-58/static/js/main.bfc39e82.js",
+    "main.js": "/ludum-dare-58/static/js/main.8e5a7858.js",
     "static/media/musique_nuit.mp3": "/ludum-dare-58/static/media/musique_nuit.02627ac138de7a334a81.mp3",
     "static/media/musique_jour.mp3": "/ludum-dare-58/static/media/musique_jour.5b216d68aeccdfd02d09.mp3",
     "static/media/devant.png": "/ludum-dare-58/static/media/devant.01c872c7a3065b8dbb25.png",
@@ -27,10 +27,10 @@
     "static/media/prend1.mp3": "/ludum-dare-58/static/media/prend1.37ce8496966b22d3ab60.mp3",
     "index.html": "/ludum-dare-58/index.html",
     "main.e6c13ad2.css.map": "/ludum-dare-58/static/css/main.e6c13ad2.css.map",
-    "main.bfc39e82.js.map": "/ludum-dare-58/static/js/main.bfc39e82.js.map"
+    "main.8e5a7858.js.map": "/ludum-dare-58/static/js/main.8e5a7858.js.map"
   },
   "entrypoints": [
     "static/css/main.e6c13ad2.css",
-    "static/js/main.bfc39e82.js"
+    "static/js/main.8e5a7858.js"
   ]
 }
