@@ -66,45 +66,76 @@ export default function Jeu() {
                                 gap: 4,
                             }}
                         >
-                            <Typography
-                                variant="h2"
-                                component="h1"
+                            <Box
                                 sx={{
-                                    color: 'white',
-                                    fontWeight: 'bold',
-                                    textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)',
+                                    height: '60vh',
+                                    width: '80vh',
+                                    display: 'flex',
+                                    justifyContent: 'center',
+                                    alignItems: 'center',
+                                    backgroundColor: '#76fb7d',
+                                    borderRadius: '16px', // Arrondi des bords
+                                    padding: '24px', // Ajout de padding
+                                    flexDirection: 'column',
+                                    boxSizing: 'border-box', // Pour que le padding soit inclus dans la largeur/hauteur
                                 }}
                             >
-                                Forest of the magic mushrooms
-                            </Typography>
-                            <Typography
-                                sx={{
-                                    color: 'white',
-                                    fontWeight: 'bold',
-                                    textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)',
-                                }}
-                            >
-                                You are lost in a magic forest. Your only chance of survival is mushrooms. Lots of delicious and strange mushrooms.
-                            </Typography>
-                            <Button
-                                variant="contained"
-                                color="primary"
-                                size="large"
-                                sx={{
-                                    backgroundColor: '#ff9800',
-                                    color: 'white',
-                                    fontSize: '1.2rem',
-                                    padding: '12px 36px',
-                                    '&:hover': {
-                                        backgroundColor: '#e68a00',
-                                    },
-                                }}
-                                onClick={() => {
-                                    setAfficherMenu(false);
-                                }}
-                            >
-                                let’s pick mushrooms!
-                            </Button>
+                                <Typography
+                                    variant="h3" // Réduction de la taille du titre
+                                    component="h1"
+                                    sx={{
+                                        color: '#1a4d2e', // Vert très foncé
+                                        fontWeight: 'bold',
+                                        textAlign: 'center', // Centrage du titre
+                                        textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)',
+                                        mb: 2, // Marge en bas pour espacer le titre du texte
+                                    }}
+                                >
+                                    Forest of the magic mushrooms
+                                </Typography>
+                                <Typography
+                                    component="ul" // Utilisation d'une liste HTML
+                                    sx={{
+                                        color: '#1a4d2e', // Vert très foncé
+                                        pl: 2, // Padding à gauche pour les puces
+                                        m: 0, // Suppression des marges par défaut
+                                    }}
+                                >
+                                    <Typography component="li" sx={{ mb: 1 }}>
+                                        You are lost in a magic forest. Your only chance of survival is mushrooms. Lots of delicious and strange mushrooms.
+                                    </Typography>
+                                    <Typography component="li" sx={{ mb: 1 }}>
+                                        you will automatically pick mushrooms along the way
+                                    </Typography>
+                                    <Typography component="li" sx={{ mb: 1 }}>
+                                        click on the mushrooms buttons in order to feed and trigger an effect (maybe)
+                                    </Typography>
+                                    <Typography component="li" sx={{ mb: 1 }}>
+                                        get out of the forest (without starving)
+                                    </Typography>
+                                </Typography>
+                                <Button
+                                    variant="contained"
+                                    color="primary"
+                                    size="large"
+                                    sx={{
+                                        backgroundColor: '#ff9800',
+                                        color: 'white',
+                                        fontSize: '1.2rem',
+                                        padding: '12px 36px',
+                                        '&:hover': {
+                                            backgroundColor: '#e68a00',
+                                        },
+                                        mt: 2, // Marge en haut pour espacer le bouton
+                                    }}
+                                    onClick={() => {
+                                        setAfficherMenu(false);
+                                    }}
+                                >
+                                    let’s pick mushrooms!
+                                </Button>
+                            </Box>
+
                         </Box>
 
             ) : (
