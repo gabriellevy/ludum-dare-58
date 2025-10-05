@@ -9,7 +9,7 @@ import {
 } from "../donnees/images";
 
 export enum ChampignonEnum {
-    oeil_de_lynx = "Agaricus bisporus", //--
+    oeil_de_lynx = "Agaricus bisporus",
     AmanitaMuscaria = "Amanita muscaria",
     BoletusEdulis = "Boletus edulis",
     CantharellusCibarius = "Cantharellus cibarius",

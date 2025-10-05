@@ -41,8 +41,9 @@ export const evts_base: GroupeEvts = {
                 }
                 return "You found " + num + " " + champignonTrouve + ".";
             },
-            proba: 50,
+            proba: 50, // TODO : 3
             conditions: (): boolean => true,
+            //conditions: (perso: Perso): boolean => perso.distanceParcourue >= DISTANCE_COMPLETE/3, // TODO remettre à la fin : ne doit pas se trouver dès le début du jeu
         },
     ],
     probaParDefaut: 1,
