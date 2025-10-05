@@ -30,11 +30,12 @@ export default function Jeu() {
     const { play:play_musique_jour, stop:stop_musique_jour } = useSound(musique_jour);
 
     function onRestart() {
+        console.log("Mathieu onRestart initPerso : ", initPerso);
         setPerso({
             ...initPerso,
         })
     }
-    if (!perso.nuit) {
+    if (perso.nuit === undefined) {
         perso.nuit = false;
     }
 

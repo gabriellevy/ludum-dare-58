@@ -12,7 +12,7 @@ import {compterNbDeChampisEnDigestion} from "../fonctions/Champignons";
 export enum ChampignonEnum {
     oeil_de_lynx = "Agaricus bisporus",
     Huge = "Amanita muscaria",
-    BoletusEdulis = "Boletus edulis",
+    Overexcited = "Boletus edulis",
     Intuition_Escargot = "Cantharellus cibarius",
     Confused_Boar = "Lactarius deliciosus",
     Transformer = "Pleurotus ostreatus",
@@ -37,7 +37,7 @@ export const champignons: ChampignonsObj = {
     [ChampignonEnum.oeil_de_lynx]: {
         nom: ChampignonEnum.oeil_de_lynx,
         imageSrc: `${AgaricusBisporus}`,
-        secondesDEffet: 10,
+        secondesDEffet: 6,
         description: "Lynx eye : double mushrooms found",
         effet: (perso: Perso) => {
             if (compterNbDeChampisEnDigestion(perso, ChampignonEnum.Transformer)>0) {
@@ -57,10 +57,10 @@ export const champignons: ChampignonsObj = {
             return "You ate a mushroom.";
         },
     },
-    [ChampignonEnum.BoletusEdulis]: {
-        nom: ChampignonEnum.BoletusEdulis,
+    [ChampignonEnum.Overexcited]: {
+        nom: ChampignonEnum.Overexcited,
         imageSrc: `${BoletusEdulis}`,
-        secondesDEffet: 10,
+        secondesDEffet: 12,
         description: "Overexcited -1s to get next event",
         effet: () => {
             return "You ate a mushroom.";
@@ -69,7 +69,7 @@ export const champignons: ChampignonsObj = {
     [ChampignonEnum.Intuition_Escargot]: {
         nom: ChampignonEnum.Intuition_Escargot,
         imageSrc: `${CantharellusCibarius}`,
-        secondesDEffet: 10,
+        secondesDEffet: 12,
         description: "Intuition : reveals the effect of all mushrooms in tooltips",
         effet: (perso: Perso) => {
             if (compterNbDeChampisEnDigestion(perso, ChampignonEnum.Transformer)>0) {

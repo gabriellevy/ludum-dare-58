@@ -24,7 +24,7 @@ export function calculerVitessePerso(perso:Perso): number {
 export function calculerVitesseExecution(perso:Perso): number {
     // plus on avance dans le jeu plus ça va vite
     let vitesse: number = perso.vitesseExecution - perso.niveau + 1;
-    vitesse -= compterNbDeChampisEnDigestion(perso, ChampignonEnum.BoletusEdulis);
+    vitesse -= compterNbDeChampisEnDigestion(perso, ChampignonEnum.Overexcited);
     if (vitesse < 1)
         vitesse = 1;
     return vitesse;

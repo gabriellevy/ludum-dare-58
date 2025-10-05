@@ -82,11 +82,13 @@ export default function BoucleEvts() {
     }, [executerEvt, perso, setPerso]);
 
     const passerAuSuivant = useCallback(() => {
-        if (timeoutRef.current) {
-            clearTimeout(timeoutRef.current);
+        if (!perso.victoire && !perso.mort) {
+            if (timeoutRef.current) {
+                clearTimeout(timeoutRef.current);
+            }
+            setTempsRestant(null);
+            determinerEvtSuivant();
         }
-        setTempsRestant(null);
-        determinerEvtSuivant();
     }, [determinerEvtSuivant]);
 
     useEffect(() => {

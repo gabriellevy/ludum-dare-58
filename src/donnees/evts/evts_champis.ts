@@ -38,7 +38,7 @@ export const evts_champis: GroupeEvts = {
         {
             id: "evts_trouve BoletusEdulis",
             description: async (perso: Perso): Promise<string> => {
-                const champignonTrouve: ChampignonEnum = ChampignonEnum.BoletusEdulis;
+                const champignonTrouve: ChampignonEnum = ChampignonEnum.Overexcited;
                 let num:number = 1 + compterNbDeChampisEnDigestion(perso, ChampignonEnum.oeil_de_lynx);
                 for (let i = 0; i < num; i++) {
                     perso.champignons.push(champignonTrouve);
@@ -89,7 +89,7 @@ export const evts_champis: GroupeEvts = {
                 }
                 return "You found " + num + " " + champignonTrouve + ".";
             },
-            proba: 3,
+            proba: 5,
             //conditions: (): boolean => true,
             conditions: (perso:Perso): boolean =>
                 /*(!perso.nuit || perso.forme === Forme.fee_luciole)
