@@ -24,7 +24,7 @@ export const initPerso:Perso = {
 function App() {
   return (
     <div className="App">
-        <PersoContexteProvider initPerso={{...initPerso}}>
+        <PersoContexteProvider initPersoContexte={{...initPerso}}>
             <CssBaseline />
             <Jeu/>
         </PersoContexteProvider>

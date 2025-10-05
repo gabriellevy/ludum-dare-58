@@ -81,33 +81,33 @@ export default function BoucleEvts() {
         }
     }, [executerEvt, perso, setPerso]);
 
-    const passerAuSuivant = useCallback(() => {
-        if (!perso.victoire && !perso.mort) {
-            if (timeoutRef.current) {
-                clearTimeout(timeoutRef.current);
-            }
-            setTempsRestant(null);
-            determinerEvtSuivant();
+    const passerAuSuivantParClic = useCallback(() => {
+        if (timeoutRef.current) {
+            clearTimeout(timeoutRef.current);
         }
+        setTempsRestant(null);
+        determinerEvtSuivant();
     }, [determinerEvtSuivant]);
 
     useEffect(() => {
-        if (tempsRestant !== null && tempsRestant > 0) {
-            timeoutRef.current = setTimeout(() => {
-                setTempsRestant((prev) => (prev !== null ? prev - 1 : null));
-                uneSecondePasse(perso);
-            }, 1000);
-        } else if (tempsRestant === 0) {
-            if (timeoutRef.current) {
-                clearTimeout(timeoutRef.current);
+        if (!perso.mort && !perso.victoire) {
+            if (tempsRestant !== null && tempsRestant > 0) {
+                timeoutRef.current = setTimeout(() => {
+                    setTempsRestant((prev) => (prev !== null ? prev - 1 : null));
+                    uneSecondePasse(perso);
+                }, 1000);
+            } else if (tempsRestant === 0) {
+                if (timeoutRef.current) {
+                    clearTimeout(timeoutRef.current);
+                }
+                setTimeout(determinerEvtSuivant, 0);
             }
-            setTimeout(determinerEvtSuivant, 0);
+            return () => {
+                if (timeoutRef.current) {
+                    clearTimeout(timeoutRef.current);
+                }
+            };
         }
-        return () => {
-            if (timeoutRef.current) {
-                clearTimeout(timeoutRef.current);
-            }
-        };
     }, [tempsRestant, determinerEvtSuivant, perso]);
 
     // démarrer la boucle d'événements
@@ -148,7 +148,7 @@ export default function BoucleEvts() {
                         <Button
                             variant="contained"
                             color="primary"
-                            onClick={passerAuSuivant}
+                            onClick={passerAuSuivantParClic}
                         >
                             Next
                         </Button>

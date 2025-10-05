@@ -3,17 +3,19 @@ import {Perso} from "../types/Perso";
 import { PersoContexte } from "./ContexteType";
 export interface PersoContexteProviderProps {
     children: ReactNode;
-    initPerso: Perso;
+    initPersoContexte: Perso;
 }
 
-function PersoContexteProvider({children, initPerso}:Readonly<PersoContexteProviderProps>) {
-    const [perso, setPerso] = useState<Perso>(initPerso);
+function PersoContexteProvider({children, initPersoContexte}:Readonly<PersoContexteProviderProps>) {
+    const [perso, setPerso] = useState<Perso>(initPersoContexte);
 
     useEffect(() => {
-        if (initPerso) {
-            setPerso(initPerso);
+        if (initPersoContexte) {
+            setPerso({
+                ...initPersoContexte
+            });
         }
-    }, [initPerso]);
+    }, [initPersoContexte]);
 
     return (
         <PersoContexte.Provider value={{ perso, setPerso }}>

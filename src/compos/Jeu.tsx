@@ -1,4 +1,4 @@
-import React, {useContext, useEffect, useState} from "react";
+import React, {useCallback, useContext, useEffect, useState} from "react";
 import {PersoContexte, PersoContexteType} from "../contexte/ContexteType";
 import {PhaseDExecution} from "../types/Mode";
 import {Box, Button, Grid, Typography} from "@mui/material";
@@ -29,12 +29,14 @@ export default function Jeu() {
     const { play:play_musique_nuit, stop:stop_musique_nuit} = useSound(musique_nuit);
     const { play:play_musique_jour, stop:stop_musique_jour } = useSound(musique_jour);
 
-    function onRestart() {
+    const onRestart = useCallback(() => {
         console.log("Mathieu onRestart initPerso : ", initPerso);
         setPerso({
             ...initPerso,
+            champignons: [],
+            digestion: [],
         })
-    }
+    }, [setPerso]);
     if (perso.nuit === undefined) {
         perso.nuit = false;
     }
