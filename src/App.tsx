@@ -8,7 +8,6 @@ import {FREQUENCE_EVT, VITESSE_DE_BASE} from "./donnees/ReglagesJouabilite";
 export const initPerso:Perso = {
     faim: 5,
     cycle_passe: 0,
-    nuit: false,
     distanceParcourue: 0,
     vitesse: VITESSE_DE_BASE,
     niveau: 1,

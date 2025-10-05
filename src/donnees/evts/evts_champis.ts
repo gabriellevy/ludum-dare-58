@@ -18,7 +18,8 @@ export const evts_champis: GroupeEvts = {
                 return "You found " + num + " " + champignonTrouve + ".";
             },
             proba: 3,
-            conditions: (perso:Perso): boolean => !perso.nuit || perso.forme === Forme.fee_luciole,
+            conditions: (): boolean => true,
+            //  conditions: (perso:Perso): boolean => !perso.nuit || perso.forme === Forme.fee_luciole,
         },
         {
             id: "evts_trouve Huge",
@@ -31,7 +32,8 @@ export const evts_champis: GroupeEvts = {
                 return "You found " + num + " " + champignonTrouve + ".";
             },
             proba: 3,
-            conditions: (perso:Perso): boolean => !perso.nuit || perso.forme === Forme.fee_luciole,
+            conditions: (): boolean => true,
+            //  conditions: (perso:Perso): boolean => !perso.nuit || perso.forme === Forme.fee_luciole,
         },
         {
             id: "evts_trouve BoletusEdulis",
@@ -44,7 +46,8 @@ export const evts_champis: GroupeEvts = {
                 return "You found " + num + " " + champignonTrouve + ".";
             },
             proba: 3,
-            conditions: (perso:Perso): boolean => !perso.nuit || perso.forme === Forme.fee_luciole,
+            conditions: (): boolean => true,
+           //  conditions: (perso:Perso): boolean => !perso.nuit || perso.forme === Forme.fee_luciole,
         },
         {
             id: "evts_trouve Intuition_Escargot",
@@ -58,8 +61,8 @@ export const evts_champis: GroupeEvts = {
             },
             proba: 3,
             conditions: (perso:Perso): boolean =>
-                (!perso.nuit || perso.forme === Forme.fee_luciole)
-                && perso.distanceParcourue >= DISTANCE_COMPLETE/10, // pas au tout début
+                /*(!perso.nuit || perso.forme === Forme.fee_luciole)
+                &&*/ perso.distanceParcourue >= DISTANCE_COMPLETE/10, // pas au tout début
         },
         {
             id: "evts_trouve Confused_Boar",
@@ -73,8 +76,8 @@ export const evts_champis: GroupeEvts = {
             },
             proba: 3,
             conditions: (perso:Perso): boolean =>
-                (!perso.nuit || perso.forme === Forme.fee_luciole)
-                &&  perso.distanceParcourue >= DISTANCE_COMPLETE/10, // pas au tout début
+                /*(!perso.nuit || perso.forme === Forme.fee_luciole)
+                && */ perso.distanceParcourue >= DISTANCE_COMPLETE/10, // pas au tout début
         },
         {
             id: "evts_trouve Transformer",
@@ -87,18 +90,18 @@ export const evts_champis: GroupeEvts = {
                 return "You found " + num + " " + champignonTrouve + ".";
             },
             proba: 3,
-            conditions: (): boolean => true,
-            /*conditions: (perso:Perso): boolean =>
-                (!perso.nuit || perso.forme === Forme.fee_luciole)
-                && perso.distanceParcourue >= DISTANCE_COMPLETE/10, */// pas au tout début // TODO remettre à la fin : ne doit pas se trouver dès le début du jeu
+            //conditions: (): boolean => true,
+            conditions: (perso:Perso): boolean =>
+                /*(!perso.nuit || perso.forme === Forme.fee_luciole)
+                &&*/ perso.distanceParcourue >= DISTANCE_COMPLETE/10, // pas au tout début
         },
         {
             id: "evts_nuit trouve rien",
             description: async (_perso: Perso): Promise<string> => {
                 return "You can't find anything in the dark night. You also need to walk more slowly.y";
             },
-            proba: 15,
-            conditions: (perso:Perso): boolean => perso.nuit && perso.forme !== Forme.fee_luciole,
+            proba: 35,
+            conditions: (perso:Perso): boolean => !!perso.nuit && perso.forme !== Forme.lynx,
         },
     ],
     probaParDefaut: 1,

@@ -10,7 +10,7 @@ export const evts_environement: GroupeEvts = {
                 perso.nuit = true;
                 return "The night has fallen.";
             },
-            conditions: (perso:Perso): boolean => (perso.cycle_passe % NB_CYCLE_JOURNEE) === 1,
+            conditions: (perso:Perso): boolean => (perso.cycle_passe % NB_CYCLE_JOURNEE) === NB_CYCLE_JOURNEE/2,
         },
         {
             id: "evts_jour",
@@ -18,7 +18,7 @@ export const evts_environement: GroupeEvts = {
                 perso.nuit = false;
                 return "The day dawns.";
             },
-            conditions: (perso:Perso): boolean => (perso.cycle_passe % NB_CYCLE_JOURNEE) === (NB_CYCLE_JOURNEE/2 + 1),
+            conditions: (perso:Perso): boolean => (perso.cycle_passe >= NB_CYCLE_JOURNEE) && (perso.cycle_passe % NB_CYCLE_JOURNEE) === 0,
         },
     ],
     probaParDefaut: 99999999999999999999999999999999999999999, // obligatoires

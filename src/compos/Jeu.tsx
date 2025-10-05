@@ -34,16 +34,21 @@ export default function Jeu() {
             ...initPerso,
         })
     }
+    if (!perso.nuit) {
+        perso.nuit = false;
+    }
 
     useEffect(() => {
-        if (perso.nuit) {
-            stop_musique_jour();
-            play_musique_nuit();
-        } else {
-            stop_musique_nuit();
-            play_musique_jour();
+        if (!perso.mort && !perso.victoire) {
+            if (perso.nuit) {
+                stop_musique_jour();
+                play_musique_nuit();
+            } else {
+                stop_musique_nuit();
+                play_musique_jour();
+            }
         }
-    }, [perso.nuit, play_musique_jour, play_musique_nuit, stop_musique_jour, stop_musique_nuit]);
+    }, [perso.mort, perso.nuit, perso.victoire/*, play_musique_jour, play_musique_nuit, stop_musique_jour, stop_musique_nuit*/]);
 
     return (
         <ThemeProvider theme={theme}>

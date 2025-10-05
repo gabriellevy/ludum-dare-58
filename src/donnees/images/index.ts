@@ -16,7 +16,7 @@ import GanodermaLucidum from './champis/GanodermaLucidum.png';
 import persoMarche from './perso.webp';
 import escargot from './escargot.webp';
 import sanglier from './sanglier.webp';
-import luciole from './luciole.webp';
+import lynx from './luciole.webp';
 
 export { fond, fond_noir, devant, Shiitake, GanodermaLucidum, RussulaVesca, MorchellaEsculenta, PleurotusOstreatus, LactariusDeliciosus, CantharellusCibarius, BoletusEdulis, AgaricusBisporus, AmanitaMuscaria };
-export { persoMarche, escargot, sanglier, luciole };
+export { persoMarche, escargot, sanglier, lynx };

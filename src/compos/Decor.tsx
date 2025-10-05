@@ -1,5 +1,5 @@
 import {useContext, useEffect, useMemo, useRef, useState} from "react";
-import {devant, escargot, fond, fond_noir, luciole, persoMarche, sanglier} from "../donnees/images";
+import {devant, escargot, fond, fond_noir, lynx, persoMarche, sanglier} from "../donnees/images";
 import {PersoContexte, PersoContexteType} from "../contexte/ContexteType";
 import {calculerVitessePerso} from "../fonctions/Perso";
 import {Box} from "@mui/material";
@@ -140,7 +140,7 @@ function Decor({messageFondu}: Readonly<DecorProps>) {
                     left: characterPosition.x,
                     top: characterPosition.y,
                     width: grand ? '200px' :
-                        perso.forme === Forme.sanglier ? '120px'
+                        ( perso.forme === Forme.sanglier || perso.forme === Forme.lynx ) ? '120px'
                             : '80px',
                     height: 'auto',
                     zIndex: 2,
@@ -149,7 +149,7 @@ function Decor({messageFondu}: Readonly<DecorProps>) {
                 alt="Personnage qui marche"
                 src={perso.forme === Forme.escargot ? escargot
                     : perso.forme === Forme.sanglier ? sanglier
-                        : perso.forme === Forme.fee_luciole ? luciole :
+                        : perso.forme === Forme.lynx ? lynx :
                             persoMarche}
             />
             <div

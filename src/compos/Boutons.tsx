@@ -30,7 +30,7 @@ export default function Boutons({setMessageFondu}:Readonly<BoutonsProps>) {
         champi.effet(persoTmp);
         setMessageFondu(champi.description);
         // réduit la faim :
-        modifieFaim(perso, - 4);
+        modifieFaim(perso, - 3);
         persoTmp.digestion.push({
             ...champi
         });
