@@ -108,7 +108,12 @@ export const champignons: ChampignonsObj = {
         imageSrc: `${MorchellaEsculenta}`,
         secondesDEffet: 10,
         description: "Poisoned : Make you hungry and slow",
-        effet: () => {
+        effet: (perso: Perso) => {
+            if (compterNbDeChampisEnDigestion(perso, ChampignonEnum.Transformer)>0) {
+                // transformation
+                perso.forme = Forme.humain;
+                return ChampignonEnum.Transformer + " with a " + ChampignonEnum.Poison + " ! ";
+            }
             return "You ate a mushroom.";
         },
     },

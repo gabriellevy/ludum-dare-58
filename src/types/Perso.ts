@@ -26,7 +26,6 @@ export type Perso = {
 
 
 export enum Forme {
-    troll = "Troll",
     humain = "Human",
     escargot = "Snail",
     lynx = "Faerie",

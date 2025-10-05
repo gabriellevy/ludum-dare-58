@@ -18,7 +18,7 @@ export const initPerso:Perso = {
     debogue: true, // TODO : passer ça à false à la fin !!
     champignons: [],
     digestion: [],
-    forme: Forme.troll,
+    forme: Forme.humain,
 }
 
 function App() {
