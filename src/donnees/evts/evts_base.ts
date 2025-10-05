@@ -29,7 +29,7 @@ export const evts_base: GroupeEvts = {
                 }
                 return "You found " + num + " " + champignonTrouve + ".";
             },
-            proba: 999993,
+            proba: 3,
             conditions: (perso:Perso): boolean => perso.distanceParcourue >= DISTANCE_COMPLETE/10, // pas au tout début
         },
         {

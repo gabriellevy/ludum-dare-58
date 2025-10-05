@@ -1,4 +1,4 @@
-import {Perso} from "../types/Perso";
+import {Forme, Perso} from "../types/Perso";
 import {modifieFaim} from "./Faim";
 import {DISTANCE_COMPLETE} from "../donnees/ReglagesJouabilite";
 import {Champignon, ChampignonEnum} from "../types/Champignon";
@@ -22,7 +22,8 @@ export function leTempsPasse(perso: Perso): void {
         perso.mort = true;
         return;
     }
-    const plusFaim = 1 + compterNbDeChampisEnDigestion(perso, ChampignonEnum.Huge);
+    let plusFaim = 1 + compterNbDeChampisEnDigestion(perso, ChampignonEnum.Huge);
+    plusFaim = plusFaim + perso.forme === Forme.sanglier ? 1 : 0;
     modifieFaim(perso, plusFaim);
 
     perso.distanceParcourue = perso.distanceParcourue + distanceQuiVaEetreParcourue;
