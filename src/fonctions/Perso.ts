@@ -5,10 +5,12 @@ import {ChampignonEnum} from "../types/Champignon";
 export function calculerVitessePerso(perso:Perso): number {
     let vitesse: number = perso.vitesse;
     vitesse += compterNbDeChampisEnDigestion(perso, ChampignonEnum.Huge) * 3;
+    if (perso.forme === Forme.lynx || perso.forme === Forme.sanglier) {
+        vitesse += 2;
+    }
     vitesse -= compterNbDeChampisEnDigestion(perso, ChampignonEnum.Poison) * 2;
 
     if (vitesse < 1) vitesse = 0;
-
 
     if (perso.forme === Forme.escargot) {
         vitesse = 1;
