@@ -18,6 +18,8 @@ export default function AffichageDigestion() {
                 overflow: 'hidden', // Désactive le scroll pour le parent
                 mb: 1,
                 width: '100%', // Prend toute la largeur disponible
+                borderRadius: '16px', // Arrondi des bords
+                margin: '-5px',
             }}
         >
             <Box
@@ -26,7 +28,18 @@ export default function AffichageDigestion() {
                     mb: 1,
                     padding: 1,
                 }}>
-                Hunger :
+
+                <Typography
+                    component="h4"
+                    sx={{
+                        color: '#bef4d6', // Vert très foncé
+                        fontWeight: 'bold',
+                        textAlign: 'center', // Centrage du titre
+                        textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)',
+                    }}
+                >
+                    Hunger :
+                </Typography>
                 <Jauge value={perso.faim} />
             </Box>
             {

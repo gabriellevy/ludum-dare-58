@@ -12,6 +12,7 @@ import {initPerso} from "../App";
 import {useSound} from "react-sounds";
 import musique_nuit from '../donnees/sons/musique_nuit.mp3';
 import musique_jour from '../donnees/sons/musique_jour.mp3';
+import {fond} from "../donnees/images";
 
 const theme = createTheme({
     palette: {
@@ -61,9 +62,11 @@ export default function Jeu() {
                                 display: 'flex',
                                 justifyContent: 'center',
                                 alignItems: 'center',
-                                backgroundColor: '#2e7d32', // Fond vert
                                 flexDirection: 'column',
-                                gap: 4,
+                                backgroundImage: `url(${fond})`, // Utilisation de l'image de fond
+                                backgroundRepeat: 'repeat-x',
+                                backgroundSize: 'cover', // ou 'contain' selon l'effet souhaité
+                                backgroundPosition: 'center',
                             }}
                         >
                             <Box
@@ -139,6 +142,19 @@ export default function Jeu() {
                         </Box>
 
             ) : (
+                <Box
+                    sx={{
+                        height: '100vh',
+                        display: 'flex',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        flexDirection: 'column',
+                        backgroundImage: `url(${fond})`, // Utilisation de l'image de fond
+                        backgroundRepeat: 'repeat-x',
+                        backgroundSize: 'cover', // ou 'contain' selon l'effet souhaité
+                        backgroundPosition: 'center',
+                    }}
+                >
                 <Grid container sx={{ height: 600, width: 800 }}>
                     <Grid size={4}>
                         <AffichageDigestion />
@@ -146,7 +162,6 @@ export default function Jeu() {
                     <Grid size={8}>
                         <Box
                             sx={{
-                                backgroundColor: '#317a3a', // Fond vert
                                 display: 'flex',
                                 flexDirection: 'column',
                                 height: '100vh', // Prend toute la hauteur de la fenêtre
@@ -168,13 +183,14 @@ export default function Jeu() {
                                 overflow: 'auto', // Active le scroll uniquement ici
                                 backgroundColor: '#71f178',
                                 maxHeight: '250px',
-                                borderRadius: '4px', // Optionnel : coins arrondis
+                                borderRadius: '16px', // Optionnel : coins arrondis
                             }}>
                                 <BoucleEvts/>
                             </Box>
                         </Box>
                     </Grid>
                 </Grid>
+                </Box>
             )}
             {(perso.mort || perso.victoire) && <GameOverOverlay onRestart={onRestart} mort={perso.mort ?? false}/>}
         </ThemeProvider>
