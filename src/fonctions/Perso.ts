@@ -4,7 +4,7 @@ import {ChampignonEnum} from "../types/Champignon";
 
 export function calculerVitessePerso(perso:Perso): number {
     let vitesse: number = perso.vitesse;
-    vitesse += compterNbDeChampisEnDigestion(perso, ChampignonEnum.AmanitaMuscaria) * 3;
+    vitesse += compterNbDeChampisEnDigestion(perso, ChampignonEnum.Huge) * 3;
 
 
     if (perso.forme === Forme.escargot) {

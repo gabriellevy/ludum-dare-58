@@ -20,7 +20,7 @@ export default function Boutons({setMessageFondu}:Readonly<BoutonsProps>) {
     const consommerChampi = useCallback((champi: Champignon, index:number) => {
         let persoTmp = perso;
         switch (champi.nom) {
-            case ChampignonEnum.AmanitaMuscaria:
+            case ChampignonEnum.Huge:
                 play_grandit();
                 break;
             default:

@@ -11,7 +11,7 @@ import {compterNbDeChampisEnDigestion} from "../fonctions/Champignons";
 
 export enum ChampignonEnum {
     oeil_de_lynx = "Agaricus bisporus",
-    AmanitaMuscaria = "Amanita muscaria",
+    Huge = "Amanita muscaria",
     BoletusEdulis = "Boletus edulis",
     CantharellusCibarius = "Cantharellus cibarius",
     Confused_Snail = "Lactarius deliciosus",
@@ -43,8 +43,8 @@ export const champignons: ChampignonsObj = {
             return "You ate a mushroom.";
         },
     },
-    [ChampignonEnum.AmanitaMuscaria]: {
-        nom: ChampignonEnum.AmanitaMuscaria,
+    [ChampignonEnum.Huge]: {
+        nom: ChampignonEnum.Huge,
         imageSrc: `${AmanitaMuscaria}`,
         secondesDEffet: 10,
         description: "Huge : 50% Faster but needs more food",

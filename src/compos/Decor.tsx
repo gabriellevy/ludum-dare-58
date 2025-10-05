@@ -26,7 +26,7 @@ function Decor({messageFondu}: Readonly<DecorProps>) {
     const textIdRef = useRef<number>(0);
     const { perso } = useContext(PersoContexte) as PersoContexteType;
 
-    const grand = useMemo(() => compterNbDeChampisEnDigestion(perso, ChampignonEnum.AmanitaMuscaria), [perso]);
+    const grand = useMemo(() => compterNbDeChampisEnDigestion(perso, ChampignonEnum.Huge), [perso]);
 
     useEffect(() => {
         const container = containerRef.current;

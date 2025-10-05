@@ -3,6 +3,7 @@ import {Perso} from "../../types/Perso";
 import {Champignon, ChampignonEnum, champignons} from "../../types/Champignon";
 import {getRandomEnumValue} from "../../fonctions/aleatoire";
 import {compterNbDeChampisEnDigestion} from "../../fonctions/Champignons";
+import {DISTANCE_COMPLETE} from "../ReglagesJouabilite";
 
 export const evts_base: GroupeEvts = {
     evts: [
@@ -19,9 +20,22 @@ export const evts_base: GroupeEvts = {
             conditions: (): boolean => true,
         },
         {
-            id: "evts_trouve champignon",
+            id: "evts_trouve Confused_Snail",
             description: async (perso: Perso): Promise<string> => {
                 const champignonTrouve: ChampignonEnum = ChampignonEnum.Confused_Snail;
+                let num:number = 1 + compterNbDeChampisEnDigestion(perso, ChampignonEnum.oeil_de_lynx);
+                for (let i = 0; i < num; i++) {
+                    perso.champignons.push(champignonTrouve);
+                }
+                return "You found " + num + " " + champignonTrouve + ".";
+            },
+            proba: 3,
+            conditions: (perso:Perso): boolean => perso.distanceParcourue >= DISTANCE_COMPLETE/10, // pas au tout début
+        },
+        {
+            id: "evts_trouve Huge",
+            description: async (perso: Perso): Promise<string> => {
+                const champignonTrouve: ChampignonEnum = ChampignonEnum.Huge;
                 let num:number = 1 + compterNbDeChampisEnDigestion(perso, ChampignonEnum.oeil_de_lynx);
                 for (let i = 0; i < num; i++) {
                     perso.champignons.push(champignonTrouve);
@@ -32,7 +46,7 @@ export const evts_base: GroupeEvts = {
             conditions: (): boolean => true,
         },
         {
-            id: "evts_trouve champignon",
+            id: "evts_trouve Transformer",
             description: async (perso: Perso): Promise<string> => {
                 const champignonTrouve: ChampignonEnum = ChampignonEnum.Transformer;
                 let num:number = 1 + compterNbDeChampisEnDigestion(perso, ChampignonEnum.oeil_de_lynx);

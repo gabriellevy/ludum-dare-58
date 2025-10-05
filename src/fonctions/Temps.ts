@@ -22,7 +22,7 @@ export function leTempsPasse(perso: Perso): void {
         perso.mort = true;
         return;
     }
-    const plusFaim = 1 + compterNbDeChampisEnDigestion(perso, ChampignonEnum.AmanitaMuscaria);
+    const plusFaim = 1 + compterNbDeChampisEnDigestion(perso, ChampignonEnum.Huge);
     modifieFaim(perso, plusFaim);
 
     perso.distanceParcourue = perso.distanceParcourue + distanceQuiVaEetreParcourue;
