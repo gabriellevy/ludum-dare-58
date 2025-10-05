@@ -31,12 +31,12 @@ function Decor({messageFondu}: Readonly<DecorProps>) {
     useEffect(() => {
         const container = containerRef.current;
         if (!container) return;
-        const vitesseDefilement = calculerVitessePerso(perso)-3;
+        const vitesseDefilement = calculerVitessePerso(perso);
 
         const handleScroll = () => {
             // Mise à jour de la position pour simuler le défilement
             setScrollPosition((prev: number) => {
-                let pos = (prev + vitesseDefilement) % container.clientWidth;
+                let pos = (prev + vitesseDefilement/2) % container.clientWidth;
                 if (pos < 0)
                     pos += container.clientWidth;
 

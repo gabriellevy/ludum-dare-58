@@ -7,6 +7,7 @@ import {
     PleurotusOstreatus,
     RussulaVesca, Shiitake
 } from "../donnees/images";
+import {compterNbDeChampisEnDigestion} from "../fonctions/Champignons";
 
 export enum ChampignonEnum {
     oeil_de_lynx = "Agaricus bisporus",
@@ -75,8 +76,12 @@ export const champignons: ChampignonsObj = {
         secondesDEffet: 10,
         description: "?? Confused : go backward",
         effet: (perso: Perso) => {
-            perso.forme = Forme.escargot;
-            return ChampignonEnum.Transformer + " with a " + ChampignonEnum.Confused_Snail + " ! ";
+            if (compterNbDeChampisEnDigestion(perso, ChampignonEnum.Transformer)>0) {
+                // transformation
+                perso.forme = Forme.escargot;
+                return ChampignonEnum.Transformer + " with a " + ChampignonEnum.Confused_Snail + " ! ";
+            }
+            return "You ate a mushroom.";
         },
     },
     [ChampignonEnum.Transformer]: {
