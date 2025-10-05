@@ -1,4 +1,3 @@
-import {PhaseDExecution} from "./Mode";
 import {Champignon, ChampignonEnum} from "./Champignon";
 
 export type Perso = {
@@ -12,7 +11,6 @@ export type Perso = {
     vitesseExecution: number, // en secondes entre chaque événement
     mort?: boolean,
     victoire?: boolean,
-    phaseDExecution: PhaseDExecution;
     debogue: boolean;
     forme: Forme;
 

@@ -138,7 +138,7 @@ function Decor({messageFondu}: Readonly<DecorProps>) {
                 sx={{
                     position: 'absolute',
                     left: characterPosition.x,
-                    top: characterPosition.y,
+                    top: characterPosition.y - (perso.forme === Forme.humain ? 0 : 15),
                     width: grand ? '200px' :
                         ( perso.forme === Forme.sanglier || perso.forme === Forme.lynx ) ? '120px'
                             : '80px',

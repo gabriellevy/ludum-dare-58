@@ -129,29 +129,24 @@ export default function BoucleEvts() {
     }, [determinerEvtSuivant, perso]);
 
     return (
-        <Box
-            sx={{
-                backgroundColor: '#71f178',
-                maxHeight: '250px',
-            }}
-        >
+        <Box>
             {evtsExecutes.map((evt: EvtExecute, index: number) => (
                 <Typography mb={2} align="left" key={"evt" + index + evt.id}>
                     <span dangerouslySetInnerHTML={{ __html: evt.texteFinal}} />
                 </Typography>
             ))}
-            {tempsRestant !== null && perso.debogue && tempsRestant > 0 && (
+            {tempsRestant !== null && tempsRestant > 0 && (
                 <>
                         <Typography fontWeight="bold">
                             Prochain événement dans {tempsRestant} seconde{tempsRestant > 1 ? 's' : ''}...
                         </Typography>
-                        <Button
+                        {perso.debogue && (<Button
                             variant="contained"
                             color="primary"
                             onClick={passerAuSuivantParClic}
                         >
                             Next
-                        </Button>
+                        </Button>)}
                 </>
             )}
             <div ref={messagesEndRef} />

@@ -1,6 +1,5 @@
 import React, {useCallback, useContext, useEffect, useState} from "react";
 import {PersoContexte, PersoContexteType} from "../contexte/ContexteType";
-import {PhaseDExecution} from "../types/Mode";
 import {Box, Button, Grid, Typography} from "@mui/material";
 import Decor from "./Decor";
 import BoucleEvts from "./BoucleEvts";
@@ -76,7 +75,7 @@ export default function Jeu() {
                                     textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)',
                                 }}
                             >
-                                Mushroom hunter
+                                Forest of the magic mushrooms
                             </Typography>
                             <Typography
                                 sx={{
@@ -85,7 +84,7 @@ export default function Jeu() {
                                     textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)',
                                 }}
                             >
-                                You are lost in a dark forest. Your only chance of survival is mushrooms. Lots of delicious and strange mushrooms.
+                                You are lost in a magic forest. Your only chance of survival is mushrooms. Lots of delicious and strange mushrooms.
                             </Typography>
                             <Button
                                 variant="contained"
@@ -108,15 +107,15 @@ export default function Jeu() {
                             </Button>
                         </Box>
 
-            ) : perso.phaseDExecution === PhaseDExecution.marche && (
-                <Grid container sx={{ height: '100vh', width: '100vw' }}>
+            ) : (
+                <Grid container sx={{ height: 600, width: 800 }}>
                     <Grid size={4}>
                         <AffichageDigestion />
                     </Grid>
                     <Grid size={8}>
                         <Box
                             sx={{
-                                backgroundColor: '#71f178', // Fond vert
+                                backgroundColor: '#317a3a', // Fond vert
                                 display: 'flex',
                                 flexDirection: 'column',
                                 height: '100vh', // Prend toute la hauteur de la fenêtre
@@ -136,6 +135,9 @@ export default function Jeu() {
                                 padding: 1,
                                 flexGrow: 1, // Prend l'espace restant
                                 overflow: 'auto', // Active le scroll uniquement ici
+                                backgroundColor: '#71f178',
+                                maxHeight: '250px',
+                                borderRadius: '4px', // Optionnel : coins arrondis
                             }}>
                                 <BoucleEvts/>
                             </Box>

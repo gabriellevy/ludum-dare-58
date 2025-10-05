@@ -8,6 +8,6 @@ export default function Progression() {
     const { perso } = useContext(PersoContexte) as PersoContexteType;
 
     return (
-            <Jauge value={perso.distanceParcourue} niveau={true} max={DISTANCE_COMPLETE}/>
+            <Jauge value={perso.distanceParcourue} niveau={true} max={DISTANCE_COMPLETE}/> // TODO : préciser objectif
     );
 }

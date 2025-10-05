@@ -1,4 +1,4 @@
-import {Box} from '@mui/material';
+import {Box, Typography} from '@mui/material';
 import {useContext} from "react";
 import Jauge from "./Jauge";
 import {PersoContexte, PersoContexteType} from "../contexte/ContexteType";
@@ -11,11 +11,13 @@ export default function AffichageDigestion() {
     return (
         <Box
             sx={{
-                backgroundColor: '#71f178', // Fond vert
+                backgroundColor: '#1e4521', // Fond vert
                 display: 'flex',
                 flexDirection: 'column',
                 height: '100vh', // Prend toute la hauteur de la fenêtre
                 overflow: 'hidden', // Désactive le scroll pour le parent
+                mb: 1,
+                width: '100%', // Prend toute la largeur disponible
             }}
         >
             <Box
@@ -32,10 +34,15 @@ export default function AffichageDigestion() {
                     return (
                         <Box
                             sx={{
-                            display: 'flex',
-                            fontSize: 12,
-                            backgroundColor: '#97836c',
-                            mb: 1,
+                                display: 'flex',
+                                backgroundColor: '#97836c',
+                                mb: 1,
+                                width: '95%',
+                                flexWrap: 'wrap',
+                                wordBreak: 'break-word',
+                                alignItems: 'center', // Pour aligner verticalement les éléments
+                                padding: '8px', // Ajoute un peu d'espace interne
+                                borderRadius: '4px', // Optionnel : coins arrondis
                          }}>
                             <Box
                                 component="img"
@@ -47,7 +54,10 @@ export default function AffichageDigestion() {
                                 alt={champi.nom}
                                 src={champi.imageSrc}
                             />
-                            <Box>
+                            <Typography sx={{
+                                fontSize: 12,
+                                wordBreak: 'break-word', width: 'calc(100% - 40px - 8px)'
+                            }}>
                             {
                                 champi.description
                             }
@@ -55,7 +65,7 @@ export default function AffichageDigestion() {
                             ({
                                 champi.secondesDEffet
                             } s)
-                            </Box>
+                            </Typography>
                         </Box>
                 )
                 })

@@ -89,7 +89,7 @@ export const evts_champis: GroupeEvts = {
                 }
                 return "You found " + num + " " + champignonTrouve + ".";
             },
-            proba: 7,
+            proba: 5,
             //conditions: (): boolean => true,
             conditions: (perso:Perso): boolean =>
                 /*(!perso.nuit || perso.forme === Forme.fee_luciole)
@@ -116,7 +116,7 @@ export const evts_champis: GroupeEvts = {
             description: async (_perso: Perso): Promise<string> => {
                 return "You can't find anything in the dark night. You also need to walk more slowly.";
             },
-            proba: 35,
+            proba: 25,
             conditions: (perso:Perso): boolean => !!perso.nuit && perso.forme !== Forme.lynx,
         },
     ],
