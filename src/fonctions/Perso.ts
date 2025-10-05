@@ -5,7 +5,11 @@ import {ChampignonEnum} from "../types/Champignon";
 export function calculerVitessePerso(perso:Perso): number {
     let vitesse: number = perso.vitesse;
     vitesse += compterNbDeChampisEnDigestion(perso, ChampignonEnum.AmanitaMuscaria) * 3;
-    // vitesse réduite par le poids ??
+    // confus ??
+    const confus:boolean = compterNbDeChampisEnDigestion(perso, ChampignonEnum.LactariusDeliciosus) % 2 === 1;
+    if (confus) {
+        vitesse = -vitesse;
+    }
 
     return vitesse;
 }

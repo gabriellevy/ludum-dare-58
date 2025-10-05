@@ -16,10 +16,10 @@ type FloatingText = {
 interface DecorProps {
     messageFondu: string,
 }
+const characterPosition:{ x: number; y: number } = { x: 100, y: 170 };
 
 function Decor({messageFondu}: Readonly<DecorProps>) {
     const [scrollPosition, setScrollPosition] = useState<number>(0);
-    const [characterPosition/*, setCharacterPosition*/] = useState<{ x: number; y: number }>({ x: 100, y: 170 });
     const [floatingTexts, setFloatingTexts] = useState<FloatingText[]>([]);
     const containerRef = useRef<HTMLDivElement>(null);
     const textIdRef = useRef<number>(0);
@@ -34,7 +34,13 @@ function Decor({messageFondu}: Readonly<DecorProps>) {
 
         const handleScroll = () => {
             // Mise à jour de la position pour simuler le défilement
-            setScrollPosition((prev: number) => (prev + vitesseDefilement) % container.clientWidth);
+            setScrollPosition((prev: number) => {
+                let pos = (prev + vitesseDefilement) % container.clientWidth;
+                if (pos < 0)
+                    pos += container.clientWidth;
+
+                return pos;
+            });
         };
 
         const interval = setInterval(handleScroll, 30); // Rafraîchit toutes les 30ms
@@ -66,7 +72,7 @@ function Decor({messageFondu}: Readonly<DecorProps>) {
             y: characterPosition.y - 70,
         };
         setFloatingTexts([...floatingTexts, newText]);
-    }, [characterPosition.x, characterPosition.y, messageFondu]);
+    }, [messageFondu]);
 
     useEffect(() => {
         if (floatingTexts.length > 0) {
@@ -76,6 +82,12 @@ function Decor({messageFondu}: Readonly<DecorProps>) {
             return () => clearTimeout(timer);
         }
     }, [floatingTexts]);
+
+    const persoTransform:string = useMemo(() =>
+        compterNbDeChampisEnDigestion(perso, ChampignonEnum.LactariusDeliciosus) % 2 === 1 ?
+            'translateY(-50%) scale(-1, 1)' :
+            'translateY(-50%) scale(1, 1)'
+    , [perso]);
 
     return (
         <div
@@ -129,7 +141,7 @@ function Decor({messageFondu}: Readonly<DecorProps>) {
                     width: grand ? '200px' : '80px',
                     height: 'auto',
                     zIndex: 2,
-                    transform: 'translateY(-50%) scale(1, 1)', // Centre verticalement
+                    transform: persoTransform,
                 }}
                 alt="Personnage qui marche"
                 src={persoMarche}

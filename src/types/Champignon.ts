@@ -73,7 +73,7 @@ export const champignons: ChampignonsObj = {
         nom: ChampignonEnum.LactariusDeliciosus,
         imageSrc: `${LactariusDeliciosus}`,
         secondesDEffet: 10,
-        description: "?????",
+        description: "?? Confused : go backward",
         effet: () => {
             return "You ate a mushroom.";
         },
