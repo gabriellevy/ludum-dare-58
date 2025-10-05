@@ -98,7 +98,7 @@ export const evts_champis: GroupeEvts = {
         {
             id: "evts_nuit trouve rien",
             description: async (_perso: Perso): Promise<string> => {
-                return "You can't find anything in the dark night. You also need to walk more slowly.y";
+                return "You can't find anything in the dark night. You also need to walk more slowly.";
             },
             proba: 35,
             conditions: (perso:Perso): boolean => !!perso.nuit && perso.forme !== Forme.lynx,

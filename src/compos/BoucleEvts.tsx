@@ -57,52 +57,27 @@ export default function BoucleEvts() {
             ...filtrerEtPreparerEvts(evts_environement, perso),
         ];
 
-        if (evtsApplicables.length > 0) {
-            // sélectionner un des evts en fonction de leur proba
-            let completeProba: number = 0;
-            evtsApplicables.forEach(evt => {
-                if (evt.proba) {
-                    completeProba += evt.proba;
-                }
-            })
-            let randomProba: number = Math.random() * completeProba;
-            evtsApplicables.every(evt => {
-                if (evt.proba) {
-                    randomProba -= evt.proba;
-                    if (randomProba <= 0) {
-                        executerEvt(evt);
-                        return false;
-                    }
-                }
-                return true
-            })
-
-            if (demarre) {
-                if (perso.mort) {
-                    const evt: Evt = {
-                        id: "mort",
-                        description: () =>  new Promise((resolve) => {
-                            resolve("You are dead.");
-                        }),
-                    };
+        // sélectionner un des evts en fonction de leur proba
+        let completeProba: number = 0;
+        evtsApplicables.forEach(evt => {
+            if (evt.proba) {
+                completeProba += evt.proba;
+            }
+        })
+        let randomProba: number = Math.random() * completeProba;
+        evtsApplicables.every(evt => {
+            if (evt.proba) {
+                randomProba -= evt.proba;
+                if (randomProba <= 0) {
                     executerEvt(evt);
-                }
-                else if (perso.victoire) {
-                    const evt: Evt = {
-                        id: "victoire",
-                        description: () =>  new Promise((resolve) => {
-                            const texte: string = "You got out of the forest."
-                            + (perso.champignons.length > 5 ? " Et avec plein de champignons !" : "");
-                            resolve(texte);
-                        }),
-                    };
-                    executerEvt(evt);
-                } else {
-                    setTempsRestant(calculerVitesseExecution(perso));
+                    return false;
                 }
             }
-        } else {
-            demarre= false;
+            return true
+        })
+
+        if (demarre && !perso.mort && !perso.victoire) {
+            setTempsRestant(calculerVitesseExecution(perso));
         }
     }, [executerEvt, perso, setPerso]);
 
