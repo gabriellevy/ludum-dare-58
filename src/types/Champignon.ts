@@ -13,7 +13,7 @@ export enum ChampignonEnum {
     oeil_de_lynx = "Agaricus bisporus",
     Huge = "Amanita muscaria",
     BoletusEdulis = "Boletus edulis",
-    CantharellusCibarius = "Cantharellus cibarius",
+    Intuition_Escargot = "Cantharellus cibarius",
     Confused_Snail = "Lactarius deliciosus",
     Transformer = "Pleurotus ostreatus",
     MorchellaEsculenta  = "Morchella esculenta",
@@ -61,20 +61,11 @@ export const champignons: ChampignonsObj = {
             return "You ate a mushroom.";
         },
     },
-    [ChampignonEnum.CantharellusCibarius]: {
-        nom: ChampignonEnum.CantharellusCibarius,
+    [ChampignonEnum.Intuition_Escargot]: {
+        nom: ChampignonEnum.Intuition_Escargot,
         imageSrc: `${CantharellusCibarius}`,
         secondesDEffet: 10,
         description: "Intuition : reveals the effect of all mushrooms in tooltips",
-        effet: () => {
-            return "You ate a mushroom.";
-        },
-    },
-    [ChampignonEnum.Confused_Snail]: {
-        nom: ChampignonEnum.Confused_Snail,
-        imageSrc: `${LactariusDeliciosus}`,
-        secondesDEffet: 10,
-        description: "?? Confused : go backward",
         effet: (perso: Perso) => {
             if (compterNbDeChampisEnDigestion(perso, ChampignonEnum.Transformer)>0) {
                 // transformation
@@ -84,11 +75,20 @@ export const champignons: ChampignonsObj = {
             return "You ate a mushroom.";
         },
     },
+    [ChampignonEnum.Confused_Snail]: {
+        nom: ChampignonEnum.Confused_Snail,
+        imageSrc: `${LactariusDeliciosus}`,
+        secondesDEffet: 10,
+        description: "?? Confused : go backward",
+        effet: () => {
+            return "You ate a mushroom.";
+        },
+    },
     [ChampignonEnum.Transformer]: {
         nom: ChampignonEnum.Transformer,
         imageSrc: `${PleurotusOstreatus}`,
         secondesDEffet: 10,
-        description: "Transformer",
+        description: "Transform yourself into something depending on the next mushroom you eat",
         effet: () => {
             return "You ate a mushroom.";
         },

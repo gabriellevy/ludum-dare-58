@@ -54,7 +54,7 @@ export default function Boutons({setMessageFondu}:Readonly<BoutonsProps>) {
                 perso.champignons.map((champiEnum:ChampignonEnum, index:number) => {
                     const champi: Champignon = champignons[champiEnum];
                     return (
-                        <Tooltip title={compterNbDeChampisEnDigestion(perso, ChampignonEnum.CantharellusCibarius) > 0 ? champi.description : ''}>
+                        <Tooltip title={compterNbDeChampisEnDigestion(perso, ChampignonEnum.Intuition_Escargot) > 0 ? champi.description : ''}>
                             <IconButton
                                 color="primary"
                                 size="small"

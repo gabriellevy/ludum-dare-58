@@ -20,9 +20,22 @@ export const evts_base: GroupeEvts = {
             conditions: (): boolean => true,
         },
         {
-            id: "evts_trouve Confused_Snail",
+            id: "evts_trouve Confused",
             description: async (perso: Perso): Promise<string> => {
                 const champignonTrouve: ChampignonEnum = ChampignonEnum.Confused_Snail;
+                let num:number = 1 + compterNbDeChampisEnDigestion(perso, ChampignonEnum.oeil_de_lynx);
+                for (let i = 0; i < num; i++) {
+                    perso.champignons.push(champignonTrouve);
+                }
+                return "You found " + num + " " + champignonTrouve + ".";
+            },
+            proba: 3,
+            conditions: (perso:Perso): boolean => perso.distanceParcourue >= DISTANCE_COMPLETE/10, // pas au tout début
+        },
+        {
+            id: "evts_trouve Intuition_Escargot",
+            description: async (perso: Perso): Promise<string> => {
+                const champignonTrouve: ChampignonEnum = ChampignonEnum.Intuition_Escargot;
                 let num:number = 1 + compterNbDeChampisEnDigestion(perso, ChampignonEnum.oeil_de_lynx);
                 for (let i = 0; i < num; i++) {
                     perso.champignons.push(champignonTrouve);
