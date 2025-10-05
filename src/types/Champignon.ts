@@ -2,10 +2,9 @@ import {Forme, Perso} from "./Perso";
 import {
     AgaricusBisporus,
     AmanitaMuscaria, BoletusEdulis, CantharellusCibarius,
-    GanodermaLucidum, LactariusDeliciosus,
+    LactariusDeliciosus,
     MorchellaEsculenta,
     PleurotusOstreatus,
-    RussulaVesca, Shiitake
 } from "../donnees/images";
 import {compterNbDeChampisEnDigestion} from "../fonctions/Champignons";
 
@@ -17,9 +16,6 @@ export enum ChampignonEnum {
     Confused_Boar = "Lactarius deliciosus",
     Transformer = "Pleurotus ostreatus",
     Poison  = "Morchella esculenta",
-    RussulaVesca = "Russula vesca",
-    Shiitake = "Shiitake",
-    GanodermaLucidum = "Ganoderma lucidum",
 }
 
 export type Champignon = {
@@ -53,7 +49,12 @@ export const champignons: ChampignonsObj = {
         imageSrc: `${AmanitaMuscaria}`,
         secondesDEffet: 10,
         description: "Huge : 50% Faster but needs more food",
-        effet: () => {
+        effet: (perso: Perso) => {
+            if (compterNbDeChampisEnDigestion(perso, ChampignonEnum.Transformer)>0) {
+                // transformation
+                perso.forme = Forme.escargot;
+                return ChampignonEnum.Transformer + " with a " + ChampignonEnum.Intuition_Escargot + " ! ";
+            }
             return "You ate a mushroom.";
         },
     },
@@ -62,7 +63,12 @@ export const champignons: ChampignonsObj = {
         imageSrc: `${BoletusEdulis}`,
         secondesDEffet: 12,
         description: "Overexcited -1s to get next event",
-        effet: () => {
+        effet: (perso: Perso) => {
+            if (compterNbDeChampisEnDigestion(perso, ChampignonEnum.Transformer)>0) {
+                // transformation
+                perso.forme = Forme.lynx;
+                return ChampignonEnum.Transformer + " with a " + ChampignonEnum.oeil_de_lynx + " ! ";
+            }
             return "You ate a mushroom.";
         },
     },
@@ -99,7 +105,12 @@ export const champignons: ChampignonsObj = {
         imageSrc: `${PleurotusOstreatus}`,
         secondesDEffet: 10,
         description: "Transform yourself into something depending on the next mushroom you eat",
-        effet: () => {
+        effet: (perso: Perso) => {
+            if (compterNbDeChampisEnDigestion(perso, ChampignonEnum.Transformer)>0) {
+                // transformation
+                perso.forme = Forme.sanglier;
+                return ChampignonEnum.Transformer + " with a " + ChampignonEnum.Confused_Boar + " ! ";
+            }
             return "You ate a mushroom.";
         },
     },
@@ -114,33 +125,6 @@ export const champignons: ChampignonsObj = {
                 perso.forme = Forme.humain;
                 return ChampignonEnum.Transformer + " with a " + ChampignonEnum.Poison + " ! ";
             }
-            return "You ate a mushroom.";
-        },
-    },
-    [ChampignonEnum.RussulaVesca]: {
-        nom: ChampignonEnum.RussulaVesca,
-        imageSrc: `${RussulaVesca}`,
-        secondesDEffet: 10,
-        description: "?????",
-        effet: () => {
-            return "You ate a mushroom.";
-        },
-    },
-    [ChampignonEnum.Shiitake]: {
-        nom: ChampignonEnum.Shiitake,
-        imageSrc: `${Shiitake}`,
-        secondesDEffet: 10,
-        description: "?????",
-        effet: () => {
-            return "You ate a mushroom.";
-        },
-    },
-    [ChampignonEnum.GanodermaLucidum]: {
-        nom: ChampignonEnum.GanodermaLucidum,
-        imageSrc: `${GanodermaLucidum}`,
-        secondesDEffet: 10,
-        description: "?????",
-        effet: () => {
             return "You ate a mushroom.";
         },
     },

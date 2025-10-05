@@ -105,16 +105,16 @@ export default function Jeu() {
                                     }}
                                 >
                                     <Typography component="li" sx={{ mb: 1 }}>
-                                        You are lost in a magic forest. Your only chance of survival is mushrooms. Lots of delicious and strange mushrooms.
+                                        You are lost in a magical forest. Your only chance of survival is mushrooms. Many delicious and strange mushrooms to collect and consume.
                                     </Typography>
                                     <Typography component="li" sx={{ mb: 1 }}>
                                         you will automatically pick mushrooms along the way
                                     </Typography>
                                     <Typography component="li" sx={{ mb: 1 }}>
-                                        click on the mushrooms buttons in order to feed and trigger an effect (maybe)
+                                        click on the buttons of the mushrooms in order to feed and trigger an effect (maybe)
                                     </Typography>
                                     <Typography component="li" sx={{ mb: 1 }}>
-                                        get out of the forest (without starving)
+                                        get out of the forest (without dying of hunger)
                                     </Typography>
                                 </Typography>
                                 <Button
