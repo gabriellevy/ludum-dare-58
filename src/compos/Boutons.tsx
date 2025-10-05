@@ -6,6 +6,7 @@ import {modifieFaim} from "../fonctions/Faim";
 import { useSound } from 'react-sounds';
 import prend1 from '../donnees/sons/prend1.mp3';
 import grandit from '../donnees/sons/grandit.mp3';
+import poison from '../donnees/sons/poison.mp3';
 import {compterNbDeChampisEnDigestion} from "../fonctions/Champignons";
 
 interface BoutonsProps {
@@ -16,12 +17,16 @@ export default function Boutons({setMessageFondu}:Readonly<BoutonsProps>) {
     const { perso, setPerso } = useContext(PersoContexte) as PersoContexteType;
     const { play } = useSound(prend1);
     const { play:play_grandit } = useSound(grandit);
+    const { play:play_poison } = useSound(poison);
 
     const consommerChampi = useCallback((champi: Champignon, index:number) => {
         let persoTmp = perso;
         switch (champi.nom) {
             case ChampignonEnum.Huge:
                 play_grandit();
+                break;
+            case ChampignonEnum.Poison:
+                play_poison();
                 break;
             default:
                 play();

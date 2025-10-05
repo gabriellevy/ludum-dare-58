@@ -16,7 +16,7 @@ export enum ChampignonEnum {
     Intuition_Escargot = "Cantharellus cibarius",
     Confused_Boar = "Lactarius deliciosus",
     Transformer = "Pleurotus ostreatus",
-    MorchellaEsculenta  = "Morchella esculenta",
+    Poison  = "Morchella esculenta",
     RussulaVesca = "Russula vesca",
     Shiitake = "Shiitake",
     GanodermaLucidum = "Ganoderma lucidum",
@@ -103,11 +103,11 @@ export const champignons: ChampignonsObj = {
             return "You ate a mushroom.";
         },
     },
-    [ChampignonEnum.MorchellaEsculenta]: {
-        nom: ChampignonEnum.MorchellaEsculenta,
+    [ChampignonEnum.Poison]: {
+        nom: ChampignonEnum.Poison,
         imageSrc: `${MorchellaEsculenta}`,
         secondesDEffet: 10,
-        description: "?????",
+        description: "Poisoned : Make you hungry and slow",
         effet: () => {
             return "You ate a mushroom.";
         },

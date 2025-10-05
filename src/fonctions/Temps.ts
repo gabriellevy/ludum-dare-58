@@ -23,7 +23,9 @@ export function leTempsPasse(perso: Perso): void {
         perso.mort = true;
         return;
     }
-    let plusFaim = 1 + compterNbDeChampisEnDigestion(perso, ChampignonEnum.Huge);
+    let plusFaim = 1
+        + compterNbDeChampisEnDigestion(perso, ChampignonEnum.Huge)
+        + compterNbDeChampisEnDigestion(perso, ChampignonEnum.Poison);
     plusFaim = plusFaim + (perso.forme === Forme.sanglier ? 1 : 0);
     modifieFaim(perso, plusFaim);
 

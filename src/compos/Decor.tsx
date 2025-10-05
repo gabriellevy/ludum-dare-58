@@ -17,7 +17,7 @@ type FloatingText = {
 interface DecorProps {
     messageFondu: string,
 }
-const characterPosition:{ x: number; y: number } = { x: 100, y: 170 };
+const characterPosition:{ x: number; y: number } = { x: 100, y: 170 }; // TODO monte le perso quand sanglier ou lynx ??
 
 function Decor({messageFondu}: Readonly<DecorProps>) {
     const [scrollPosition, setScrollPosition] = useState<number>(0);

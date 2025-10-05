@@ -89,11 +89,27 @@ export const evts_champis: GroupeEvts = {
                 }
                 return "You found " + num + " " + champignonTrouve + ".";
             },
-            proba: 5,
+            proba: 7,
             //conditions: (): boolean => true,
             conditions: (perso:Perso): boolean =>
                 /*(!perso.nuit || perso.forme === Forme.fee_luciole)
                 &&*/ perso.distanceParcourue >= DISTANCE_COMPLETE/10, // pas au tout début
+        },
+        {
+            id: "evts_trouve Poison",
+            description: async (perso: Perso): Promise<string> => {
+                const champignonTrouve: ChampignonEnum = ChampignonEnum.Poison;
+                let num:number = 1 + compterNbDeChampisEnDigestion(perso, ChampignonEnum.oeil_de_lynx);
+                for (let i = 0; i < num; i++) {
+                    perso.champignons.push(champignonTrouve);
+                }
+                return "You found " + num + " " + champignonTrouve + ".";
+            },
+            proba: 3,
+            //conditions: (): boolean => true,
+            conditions: (perso:Perso): boolean =>
+                /*(!perso.nuit || perso.forme === Forme.fee_luciole)
+                &&*/ perso.distanceParcourue >= DISTANCE_COMPLETE/20, // pas au tout début
         },
         {
             id: "evts_nuit trouve rien",
