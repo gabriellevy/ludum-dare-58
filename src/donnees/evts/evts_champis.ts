@@ -117,7 +117,7 @@ export const evts_champis: GroupeEvts = {
                 return "You can't find anything in the dark night. You also need to walk more slowly.";
             },
             proba: 25,
-            conditions: (perso:Perso): boolean => !!perso.nuit && perso.forme !== Forme.lynx,
+            conditions: (perso:Perso): boolean => perso.nuit && perso.forme !== Forme.lynx,
         },
     ],
     probaParDefaut: 1,

@@ -12,6 +12,7 @@ export const initPerso:Perso = {
     niveau: 1,
     vitesseExecution: FREQUENCE_EVT, // nombre de secondes entre chaque evt
     mort: false,
+    nuit: false,
     victoire: false,
     debogue: false,
     champignons: [],

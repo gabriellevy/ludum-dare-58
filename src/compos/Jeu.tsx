@@ -37,9 +37,12 @@ export default function Jeu() {
             digestion: [],
         })
     }, [setPerso]);
-    if (perso.nuit === undefined) {
-        perso.nuit = false;
-    }
+
+    useEffect(() => {
+        if (!afficherMenu) {
+            play_musique_jour();
+        }
+    }, [afficherMenu]);
 
     useEffect(() => {
         if (!perso.mort && !perso.victoire) {

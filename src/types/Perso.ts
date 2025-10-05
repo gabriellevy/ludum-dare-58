@@ -6,7 +6,7 @@ export type Perso = {
     // -1 par tick, +6 par champi (??)
     faim: number;
     cycle_passe: number;
-    nuit?: boolean;
+    nuit: boolean;
     distanceParcourue: number; // 0 à DISTANCE_COMPLETE
     vitesseExecution: number, // en secondes entre chaque événement
     mort?: boolean,
