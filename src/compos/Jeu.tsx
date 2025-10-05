@@ -120,8 +120,7 @@ export default function Jeu() {
                     </Grid>
                 </Grid>
             )}
-            {perso.mort && <GameOverOverlay onRestart={onRestart} mort/>}
-            {perso.victoire && <GameOverOverlay onRestart={onRestart} victoire />}
+            {(perso.mort || perso.victoire) && <GameOverOverlay onRestart={onRestart} mort={perso.mort ?? false}/>}
         </ThemeProvider>
     );
 }
