@@ -39,7 +39,12 @@ export const champignons: ChampignonsObj = {
         imageSrc: `${AgaricusBisporus}`,
         secondesDEffet: 10,
         description: "Eagle eye : x2 mushrooms",
-        effet: () => {
+        effet: (perso: Perso) => {
+            if (compterNbDeChampisEnDigestion(perso, ChampignonEnum.Transformer)>0) {
+                // transformation
+                perso.forme = Forme.fee_luciole;
+                return ChampignonEnum.Transformer + " with a " + ChampignonEnum.Confused_Boar + " ! ";
+            }
             return "You ate a mushroom.";
         },
     },

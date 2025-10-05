@@ -16,6 +16,7 @@ export function uneSecondePasse(perso:Perso) {
 }
 
 export function leTempsPasse(perso: Perso): void {
+    perso.cycle_passe += 1;
     const distanceQuiVaEetreParcourue = calculerVitessePerso(perso);
     // faim :
     if (perso.faim >= 20) {
@@ -23,7 +24,7 @@ export function leTempsPasse(perso: Perso): void {
         return;
     }
     let plusFaim = 1 + compterNbDeChampisEnDigestion(perso, ChampignonEnum.Huge);
-    plusFaim = plusFaim + perso.forme === Forme.sanglier ? 1 : 0;
+    plusFaim = plusFaim + (perso.forme === Forme.sanglier ? 1 : 0);
     modifieFaim(perso, plusFaim);
 
     perso.distanceParcourue = perso.distanceParcourue + distanceQuiVaEetreParcourue;

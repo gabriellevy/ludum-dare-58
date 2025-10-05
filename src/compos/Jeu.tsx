@@ -1,4 +1,4 @@
-import React, {useContext, useState} from "react";
+import React, {useContext, useEffect, useState} from "react";
 import {PersoContexte, PersoContexteType} from "../contexte/ContexteType";
 import {PhaseDExecution} from "../types/Mode";
 import {Box, Button, Grid, Typography} from "@mui/material";
@@ -10,6 +10,9 @@ import AffichageDigestion from "./AffichageDigestion";
 import Progression from "./Progression";
 import {GameOverOverlay} from "./GameOverOverlay";
 import {initPerso} from "../App";
+import {useSound} from "react-sounds";
+import musique_nuit from '../donnees/sons/musique_nuit.mp3';
+import musique_jour from '../donnees/sons/musique_jour.mp3';
 
 const theme = createTheme({
     palette: {
@@ -23,12 +26,24 @@ export default function Jeu() {
     const [afficherMenu, setAfficherMenu] = useState(true);
     const [messageFondu, setMessageFondu] = useState<string>('');
     const { perso, setPerso } = useContext(PersoContexte) as PersoContexteType;
+    const { play:play_musique_nuit, stop:stop_musique_nuit} = useSound(musique_nuit);
+    const { play:play_musique_jour, stop:stop_musique_jour } = useSound(musique_jour);
 
     function onRestart() {
         setPerso({
             ...initPerso,
         })
     }
+
+    useEffect(() => {
+        if (perso.nuit) {
+            stop_musique_jour();
+            play_musique_nuit();
+        } else {
+            stop_musique_nuit();
+            play_musique_jour();
+        }
+    }, [perso.nuit, play_musique_jour, play_musique_nuit, stop_musique_jour, stop_musique_nuit]);
 
     return (
         <ThemeProvider theme={theme}>

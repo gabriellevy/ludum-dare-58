@@ -3,8 +3,9 @@ import {Evt, EvtExecute, filtrerEtPreparerEvts} from "../types/Evt";
 import {Box, Button, Typography} from '@mui/material';
 import {PersoContexte, PersoContexteType} from "../contexte/ContexteType";
 import {leTempsPasse, uneSecondePasse} from "../fonctions/Temps";
-import {evts_base} from "../donnees/evts/evts_base";
+import {evts_champis} from "../donnees/evts/evts_champis";
 import {calculerVitesseExecution} from "../fonctions/Perso";
+import {evts_environement} from "../donnees/evts/evts_environement";
 
 let demarre:boolean = false; // le destin a été lancé et est en cours
 
@@ -52,7 +53,8 @@ export default function BoucleEvts() {
 
         // filtrer les evts non applicables
         const evtsApplicables: Evt[] = [
-            ...filtrerEtPreparerEvts(evts_base, perso),
+            ...filtrerEtPreparerEvts(evts_champis, perso),
+            ...filtrerEtPreparerEvts(evts_environement, perso),
         ];
 
         if (evtsApplicables.length > 0) {
