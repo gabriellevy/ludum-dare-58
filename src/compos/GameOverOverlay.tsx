@@ -1,4 +1,7 @@
 import {Box, Button, Typography} from "@mui/material";
+import {Forme} from "../types/Perso";
+import React, {useContext} from "react";
+import {PersoContexte, PersoContexteType} from "../contexte/ContexteType";
 
 interface GameOverOverlayProps {
     onRestart: () => void;
@@ -7,6 +10,7 @@ interface GameOverOverlayProps {
 }
 
 export function GameOverOverlay ({ onRestart, mort }: GameOverOverlayProps) {
+    const { perso } = useContext(PersoContexte) as PersoContexteType;
 
     return (
         <Box
@@ -49,22 +53,32 @@ export function GameOverOverlay ({ onRestart, mort }: GameOverOverlayProps) {
                         color: '#1a4d2e', // Vert très foncé
                         fontWeight: 'bold',
                         textAlign: 'center', // Centrage du titre
-                        textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)',
                         mb: 2, // Marge en bas pour espacer le titre du texte
                     }}
                 >
                 {mort ? "You starved to death in the dark forest..." : "You managed to leave the forest !"}
                     {!mort && (
-
                         <Typography
-                            component="ul" // Utilisation d'une liste HTML
                             sx={{
                                 color: '#1a4d2e', // Vert très foncé
-                                pl: 2, // Padding à gauche pour les puces
-                                m: 0, // Suppression des marges par défaut
+                                m: 2, // Suppression des marges par défaut
                             }}
                         >
-
+                            {
+                                perso.forme === Forme.lynx ? (
+                                    <Typography sx={{ mb: 1 }}>
+                                        And you are a lynx now. How cool is that ?
+                                    </Typography>
+                                ) : perso.forme === Forme.sanglier ? (
+                                        <Typography sx={{ mb: 1 }}>
+                                            On the other hand, you will have to get used to living in the city as a wild boar.
+                                        </Typography>
+                                    ) : perso.forme === Forme.escargot ? (
+                                            <Typography sx={{ mb: 1 }}>
+                                                And you are a snail now. How cool is that ?
+                                            </Typography>
+                                        ) : null
+                            }
                         </Typography>
                     )}
             </Typography>
