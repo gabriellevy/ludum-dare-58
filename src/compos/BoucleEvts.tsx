@@ -152,7 +152,7 @@ export default function BoucleEvts() {
     return (
         <Box
             sx={{
-                backgroundColor: '#71f178', // Fond vert
+                backgroundColor: '#71f178',
                 maxHeight: '250px',
             }}
         >

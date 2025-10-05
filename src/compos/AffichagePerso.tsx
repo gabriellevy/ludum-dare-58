@@ -18,8 +18,15 @@ export default function AffichagePerso() {
                 overflow: 'hidden', // Désactive le scroll pour le parent
             }}
         >
-            Hunger :
-            <Jauge value={perso.faim} />
+            <Box
+                sx={{
+                    fontSize: 16,
+                    mb: 1,
+                    padding: 1,
+                }}>
+                Hunger :
+                <Jauge value={perso.faim} />
+            </Box>
             {
                 perso.digestion.map((champi: Champignon) => {
                     return (
@@ -27,6 +34,8 @@ export default function AffichagePerso() {
                             sx={{
                             display: 'flex',
                             fontSize: 12,
+                            backgroundColor: '#97836c',
+                            mb: 1,
                          }}>
                             <Box
                                 component="img"
