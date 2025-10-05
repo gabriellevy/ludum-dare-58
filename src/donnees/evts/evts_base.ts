@@ -20,16 +20,16 @@ export const evts_base: GroupeEvts = {
             conditions: (): boolean => true,
         },
         {
-            id: "evts_trouve Confused",
+            id: "evts_trouve Confused_Boar",
             description: async (perso: Perso): Promise<string> => {
-                const champignonTrouve: ChampignonEnum = ChampignonEnum.Confused_Snail;
+                const champignonTrouve: ChampignonEnum = ChampignonEnum.Confused_Boar;
                 let num:number = 1 + compterNbDeChampisEnDigestion(perso, ChampignonEnum.oeil_de_lynx);
                 for (let i = 0; i < num; i++) {
                     perso.champignons.push(champignonTrouve);
                 }
                 return "You found " + num + " " + champignonTrouve + ".";
             },
-            proba: 3,
+            proba: 999993,
             conditions: (perso:Perso): boolean => perso.distanceParcourue >= DISTANCE_COMPLETE/10, // pas au tout début
         },
         {

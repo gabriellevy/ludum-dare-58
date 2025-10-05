@@ -27,4 +27,5 @@ export enum Forme {
     troll = "Troll",
     humain = "Human",
     escargot = "Snail",
+    sanglier = "Boar",
 }

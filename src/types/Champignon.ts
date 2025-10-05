@@ -14,7 +14,7 @@ export enum ChampignonEnum {
     Huge = "Amanita muscaria",
     BoletusEdulis = "Boletus edulis",
     Intuition_Escargot = "Cantharellus cibarius",
-    Confused_Snail = "Lactarius deliciosus",
+    Confused_Boar = "Lactarius deliciosus",
     Transformer = "Pleurotus ostreatus",
     MorchellaEsculenta  = "Morchella esculenta",
     RussulaVesca = "Russula vesca",
@@ -70,17 +70,22 @@ export const champignons: ChampignonsObj = {
             if (compterNbDeChampisEnDigestion(perso, ChampignonEnum.Transformer)>0) {
                 // transformation
                 perso.forme = Forme.escargot;
-                return ChampignonEnum.Transformer + " with a " + ChampignonEnum.Confused_Snail + " ! ";
+                return ChampignonEnum.Transformer + " with a " + ChampignonEnum.Confused_Boar + " ! ";
             }
             return "You ate a mushroom.";
         },
     },
-    [ChampignonEnum.Confused_Snail]: {
-        nom: ChampignonEnum.Confused_Snail,
+    [ChampignonEnum.Confused_Boar]: {
+        nom: ChampignonEnum.Confused_Boar,
         imageSrc: `${LactariusDeliciosus}`,
         secondesDEffet: 10,
         description: "?? Confused : go backward",
-        effet: () => {
+        effet: (perso: Perso) => {
+            if (compterNbDeChampisEnDigestion(perso, ChampignonEnum.Transformer)>0) {
+                // transformation
+                perso.forme = Forme.sanglier;
+                return ChampignonEnum.Transformer + " with a " + ChampignonEnum.Confused_Boar + " ! ";
+            }
             return "You ate a mushroom.";
         },
     },

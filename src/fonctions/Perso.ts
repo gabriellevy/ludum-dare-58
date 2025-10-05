@@ -12,7 +12,7 @@ export function calculerVitessePerso(perso:Perso): number {
     }
 
     // confus ??
-    const confus:boolean = compterNbDeChampisEnDigestion(perso, ChampignonEnum.Confused_Snail) % 2 === 1;
+    const confus:boolean = compterNbDeChampisEnDigestion(perso, ChampignonEnum.Confused_Boar) % 2 === 1;
     if (confus) {
         vitesse = -vitesse;
     }

@@ -1,5 +1,5 @@
 import {useContext, useEffect, useMemo, useRef, useState} from "react";
-import {devant, escargot, fond, persoMarche} from "../donnees/images";
+import {devant, escargot, fond, persoMarche, sanglier} from "../donnees/images";
 import {PersoContexte, PersoContexteType} from "../contexte/ContexteType";
 import {calculerVitessePerso} from "../fonctions/Perso";
 import {Box} from "@mui/material";
@@ -85,7 +85,7 @@ function Decor({messageFondu}: Readonly<DecorProps>) {
     }, [floatingTexts]);
 
     const persoTransform:string = useMemo(() =>
-        compterNbDeChampisEnDigestion(perso, ChampignonEnum.Confused_Snail) % 2 === 1 ?
+        compterNbDeChampisEnDigestion(perso, ChampignonEnum.Confused_Boar) % 2 === 1 ?
             'translateY(-50%) scale(-1, 1)' :
             'translateY(-50%) scale(1, 1)'
     , [perso]);
@@ -139,13 +139,16 @@ function Decor({messageFondu}: Readonly<DecorProps>) {
                     position: 'absolute',
                     left: characterPosition.x,
                     top: characterPosition.y,
-                    width: grand ? '200px' : '80px',
+                    width: grand ? '200px' :
+                        perso.forme === Forme.sanglier ? '120px'
+                            : '80px',
                     height: 'auto',
                     zIndex: 2,
                     transform: persoTransform,
                 }}
                 alt="Personnage qui marche"
-                src={perso.forme === Forme.escargot ? escargot : persoMarche}
+                src={perso.forme === Forme.escargot ? escargot
+                    : perso.forme === Forme.sanglier ? sanglier : persoMarche}
             />
             <div
                 style={{
