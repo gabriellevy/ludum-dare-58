@@ -85,7 +85,7 @@ export default function BoucleEvts() {
                     };
                     executerEvt(evt);
                 }
-                if (perso.victoire) {
+                else if (perso.victoire) {
                     const evt: Evt = {
                         id: "victoire",
                         description: () =>  new Promise((resolve) => {
@@ -147,7 +147,7 @@ export default function BoucleEvts() {
 
             setTempsRestant(calculerVitesseExecution(perso));
         }
-    }, [determinerEvtSuivant, perso.vitesseExecution]);
+    }, [determinerEvtSuivant, perso]);
 
     return (
         <Box

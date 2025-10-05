@@ -27,8 +27,9 @@ export default function AffichagePerso() {
                             <Box
                                 component="img"
                                 sx={{
-                                    maxHeight: 60,
-                                    maxWidth: 60,
+                                    padding: '3px',
+                                    height: 40,
+                                    width: 40,
                                 }}
                                 alt={champi.nom}
                                 src={champi.imageSrc}

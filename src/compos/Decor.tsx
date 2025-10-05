@@ -1,5 +1,7 @@
-import {useEffect, useRef, useState} from "react";
+import {useContext, useEffect, useRef, useState} from "react";
 import {devant, fond, persoMarche} from "../donnees/images";
+import {PersoContexte, PersoContexteType} from "../contexte/ContexteType";
+import {calculerVitessePerso} from "../fonctions/Perso";
 
 type FloatingText = {
     id: number;
@@ -18,15 +20,16 @@ function Decor({messageFondu}: Readonly<DecorProps>) {
     const [floatingTexts, setFloatingTexts] = useState<FloatingText[]>([]);
     const containerRef = useRef<HTMLDivElement>(null);
     const textIdRef = useRef<number>(0);
+    const { perso } = useContext(PersoContexte) as PersoContexteType;
 
     useEffect(() => {
         const container = containerRef.current;
         if (!container) return;
-        const speed = 2; // Vitesse de défilement
+        const vitesseDefilement = calculerVitessePerso(perso)-3;
 
         const handleScroll = () => {
             // Mise à jour de la position pour simuler le défilement
-            setScrollPosition((prev: number) => (prev + speed) % container.clientWidth);
+            setScrollPosition((prev: number) => (prev + vitesseDefilement) % container.clientWidth);
         };
 
         const interval = setInterval(handleScroll, 30); // Rafraîchit toutes les 30ms
@@ -48,7 +51,7 @@ function Decor({messageFondu}: Readonly<DecorProps>) {
         };*/
 
         return () => clearInterval(interval);
-    }, []);
+    }, [perso]);
 
     useEffect(() => {
         const newText = {

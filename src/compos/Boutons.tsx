@@ -1,5 +1,5 @@
 import React, {useCallback, useContext} from 'react';
-import {Box, Button, Tooltip} from '@mui/material';
+import {Box, IconButton, Tooltip} from '@mui/material';
 import {PersoContexte, PersoContexteType} from "../contexte/ContexteType";
 import {Champignon, ChampignonEnum, champignons} from "../types/Champignon";
 import {modifieFaim} from "../fonctions/Faim";
@@ -46,22 +46,22 @@ export default function Boutons({setMessageFondu}:Readonly<BoutonsProps>) {
                     const champi: Champignon = champignons[champiEnum];
                     return (
                         <Tooltip title={compterNbDeChampisEnDigestion(perso, ChampignonEnum.CantharellusCibarius) > 0 ? champi.description : ''}>
-                            <Button
-                                variant="contained"
+                            <IconButton
                                 color="primary"
-                                startIcon={
+                                size="small"
+                                onClick={() => consommerChampi(champi, index)}
+                                >
                                     <Box
                                         component="img"
                                         sx={{
-                                            maxHeight: 60,
-                                            maxWidth: 60,
+                                            padding: '3px',
+                                            height: 50,
+                                            width: 50,
                                         }}
                                         alt={champi.nom}
                                         src={champi.imageSrc}
                                     />
-                                }
-                                onClick={() => consommerChampi(champi, index)}
-                            />
+                            </IconButton>
                         </Tooltip>
                     )}
                 )
