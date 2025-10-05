@@ -1,5 +1,5 @@
 import {useContext, useEffect, useMemo, useRef, useState} from "react";
-import {devant, escargot, fond, fond_noir, lynx, persoMarche, sanglier} from "../donnees/images";
+import {devant, devant_nuit, escargot, fond, fond_noir, lynx, persoMarche, sanglier} from "../donnees/images";
 import {PersoContexte, PersoContexteType} from "../contexte/ContexteType";
 import {calculerVitessePerso} from "../fonctions/Perso";
 import {Box} from "@mui/material";
@@ -157,7 +157,7 @@ function Decor({messageFondu}: Readonly<DecorProps>) {
                     position: 'absolute',
                     width: '200%',
                     height: '100%',
-                    backgroundImage: `url(${devant})`,
+                    backgroundImage: `url(${perso.nuit ? devant_nuit : devant})`,
                     backgroundRepeat: 'repeat-x',
                     left: -scrollPosition * 0.7, // Effet de parallaxe
                     top: 0,

@@ -1,6 +1,7 @@
 import fond from "./fond.jpg";
 import fond_noir from "./fond_noir.jpg";
 import devant from './devant.png';
+import devant_nuit from './devant_nuit.png';
 // champis
 import AgaricusBisporus from './champis/AgaricusBisporus.png';
 import AmanitaMuscaria from './champis/AmanitaMuscaria.png';
@@ -18,5 +19,5 @@ import escargot from './escargot.webp';
 import sanglier from './sanglier.webp';
 import lynx from './luciole.webp';
 
-export { fond, fond_noir, devant, Shiitake, GanodermaLucidum, RussulaVesca, MorchellaEsculenta, PleurotusOstreatus, LactariusDeliciosus, CantharellusCibarius, BoletusEdulis, AgaricusBisporus, AmanitaMuscaria };
+export { fond, devant_nuit, fond_noir, devant, Shiitake, GanodermaLucidum, RussulaVesca, MorchellaEsculenta, PleurotusOstreatus, LactariusDeliciosus, CantharellusCibarius, BoletusEdulis, AgaricusBisporus, AmanitaMuscaria };
 export { persoMarche, escargot, sanglier, lynx };
