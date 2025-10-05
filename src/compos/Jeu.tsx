@@ -10,7 +10,6 @@ import Progression from "./Progression";
 import {GameOverOverlay} from "./GameOverOverlay";
 import {initPerso} from "../App";
 import {useSound} from "react-sounds";
-import musique_nuit from '../donnees/sons/musique_nuit.mp3';
 import musique_jour from '../donnees/sons/musique_jour.mp3';
 import {fond} from "../donnees/images";
 
@@ -26,8 +25,7 @@ export default function Jeu() {
     const [afficherMenu, setAfficherMenu] = useState(true);
     const [messageFondu, setMessageFondu] = useState<string>('');
     const { perso, setPerso } = useContext(PersoContexte) as PersoContexteType;
-    const { play:play_musique_nuit, stop:stop_musique_nuit} = useSound(musique_nuit);
-    const { play:play_musique_jour, stop:stop_musique_jour } = useSound(musique_jour);
+    const { play:play_musique_jour } = useSound(musique_jour);
 
     const onRestart = useCallback(() => {
         console.log("Mathieu onRestart initPerso : ", initPerso);
@@ -43,18 +41,6 @@ export default function Jeu() {
             play_musique_jour();
         }
     }, [afficherMenu]);
-
-    useEffect(() => {
-        if (!perso.mort && !perso.victoire) {
-            if (perso.nuit) {
-                stop_musique_jour();
-                play_musique_nuit();
-            } else {
-                stop_musique_nuit();
-                play_musique_jour();
-            }
-        }
-    }, [perso.mort, perso.nuit, perso.victoire/*, play_musique_jour, play_musique_nuit, stop_musique_jour, stop_musique_nuit*/]);
 
     return (
         <ThemeProvider theme={theme}>
