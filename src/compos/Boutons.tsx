@@ -5,6 +5,7 @@ import {Champignon, ChampignonEnum, champignons} from "../types/Champignon";
 import {modifieFaim} from "../fonctions/Faim";
 import { useSound } from 'react-sounds';
 import prend1 from '../donnees/sons/prend1.mp3';
+import grandit from '../donnees/sons/grandit.mp3';
 import {compterNbDeChampisEnDigestion} from "../fonctions/Champignons";
 
 interface BoutonsProps {
@@ -14,10 +15,18 @@ interface BoutonsProps {
 export default function Boutons({setMessageFondu}:Readonly<BoutonsProps>) {
     const { perso, setPerso } = useContext(PersoContexte) as PersoContexteType;
     const { play } = useSound(prend1);
+    const { play:play_grandit } = useSound(grandit);
 
     const consommerChampi = useCallback((champi: Champignon, index:number) => {
         let persoTmp = perso;
-        play();
+        switch (champi.nom) {
+            case ChampignonEnum.AmanitaMuscaria:
+                play_grandit();
+                break;
+            default:
+                play();
+                break;
+        }
         champi.effet(persoTmp);
         setMessageFondu(champi.description);
         // réduit la faim :
@@ -33,7 +42,7 @@ export default function Boutons({setMessageFondu}:Readonly<BoutonsProps>) {
         setPerso({
             ...persoTmp,
         });
-    }, [perso, play, setMessageFondu, setPerso]);
+    }, [perso, play, play_grandit, setMessageFondu, setPerso]);
 
     return (
         <Box
