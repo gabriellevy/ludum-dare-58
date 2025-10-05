@@ -1,12 +1,18 @@
-import {Perso} from "../types/Perso";
+import {Forme, Perso} from "../types/Perso";
 import {compterNbDeChampisEnDigestion} from "./Champignons";
 import {ChampignonEnum} from "../types/Champignon";
 
 export function calculerVitessePerso(perso:Perso): number {
     let vitesse: number = perso.vitesse;
     vitesse += compterNbDeChampisEnDigestion(perso, ChampignonEnum.AmanitaMuscaria) * 3;
+
+
+    if (perso.forme === Forme.escargot) {
+        vitesse = 1;
+    }
+
     // confus ??
-    const confus:boolean = compterNbDeChampisEnDigestion(perso, ChampignonEnum.LactariusDeliciosus) % 2 === 1;
+    const confus:boolean = compterNbDeChampisEnDigestion(perso, ChampignonEnum.Confused_Snail) % 2 === 1;
     if (confus) {
         vitesse = -vitesse;
     }

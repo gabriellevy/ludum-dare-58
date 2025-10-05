@@ -13,6 +13,7 @@ import Shiitake from './champis/Shiitake.png';
 import GanodermaLucidum from './champis/GanodermaLucidum.png';
 
 import persoMarche from './perso.webp';
+import escargot from './escargot.webp';
 
 export { fond, devant, Shiitake, GanodermaLucidum, RussulaVesca, MorchellaEsculenta, PleurotusOstreatus, LactariusDeliciosus, CantharellusCibarius, BoletusEdulis, AgaricusBisporus, AmanitaMuscaria };
-export { persoMarche };
+export { persoMarche, escargot };

@@ -1,4 +1,4 @@
-import {Perso} from "./Perso";
+import {Forme, Perso} from "./Perso";
 import {
     AgaricusBisporus,
     AmanitaMuscaria, BoletusEdulis, CantharellusCibarius,
@@ -9,12 +9,12 @@ import {
 } from "../donnees/images";
 
 export enum ChampignonEnum {
-    AgaricusBisporus = "Agaricus bisporus", //--
+    oeil_de_lynx = "Agaricus bisporus", //--
     AmanitaMuscaria = "Amanita muscaria",
     BoletusEdulis = "Boletus edulis",
     CantharellusCibarius = "Cantharellus cibarius",
-    LactariusDeliciosus = "Lactarius deliciosus",
-    PleurotusOstreatus = "Pleurotus ostreatus",
+    Confused_Snail = "Lactarius deliciosus",
+    Transformer = "Pleurotus ostreatus",
     MorchellaEsculenta  = "Morchella esculenta",
     RussulaVesca = "Russula vesca",
     Shiitake = "Shiitake",
@@ -33,8 +33,8 @@ export type Champignon = {
 export type ChampignonsObj = Record<ChampignonEnum, Champignon>;
 
 export const champignons: ChampignonsObj = {
-    [ChampignonEnum.AgaricusBisporus]: {
-        nom: ChampignonEnum.AgaricusBisporus,
+    [ChampignonEnum.oeil_de_lynx]: {
+        nom: ChampignonEnum.oeil_de_lynx,
         imageSrc: `${AgaricusBisporus}`,
         secondesDEffet: 10,
         description: "Eagle eye : x2 mushrooms",
@@ -69,20 +69,21 @@ export const champignons: ChampignonsObj = {
             return "You ate a mushroom.";
         },
     },
-    [ChampignonEnum.LactariusDeliciosus]: {
-        nom: ChampignonEnum.LactariusDeliciosus,
+    [ChampignonEnum.Confused_Snail]: {
+        nom: ChampignonEnum.Confused_Snail,
         imageSrc: `${LactariusDeliciosus}`,
         secondesDEffet: 10,
         description: "?? Confused : go backward",
-        effet: () => {
-            return "You ate a mushroom.";
+        effet: (perso: Perso) => {
+            perso.forme = Forme.escargot;
+            return ChampignonEnum.Transformer + " with a " + ChampignonEnum.Confused_Snail + " ! ";
         },
     },
-    [ChampignonEnum.PleurotusOstreatus]: {
-        nom: ChampignonEnum.PleurotusOstreatus,
+    [ChampignonEnum.Transformer]: {
+        nom: ChampignonEnum.Transformer,
         imageSrc: `${PleurotusOstreatus}`,
         secondesDEffet: 10,
-        description: "?????",
+        description: "Transformer",
         effet: () => {
             return "You ate a mushroom.";
         },

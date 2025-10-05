@@ -1,4 +1,3 @@
-import {EvtProgramme} from "./Evt";
 import {PhaseDExecution} from "./Mode";
 import {Champignon, ChampignonEnum} from "./Champignon";
 
@@ -8,12 +7,12 @@ export type Perso = {
     // -1 par tick, +6 par champi (??)
     faim: number;
     distanceParcourue: number; // 0 à DISTANCE_COMPLETE
-    evtsProgrammes: EvtProgramme[],
     vitesseExecution: number, // en secondes entre chaque événement
     mort?: boolean,
     victoire?: boolean,
     phaseDExecution: PhaseDExecution;
     debogue: boolean;
+    forme: Forme;
 
     // caracs gameplay visibles
     vitesse: number; // nombre de distance parcourue par tick (vitesseExecution)
@@ -22,3 +21,10 @@ export type Perso = {
     // champignons ingérés qui font de l'effet pour un temps chronométré
     digestion: Champignon[];
 };
+
+
+export enum Forme {
+    troll = "Troll",
+    humain = "Human",
+    escargot = "Snail",
+}

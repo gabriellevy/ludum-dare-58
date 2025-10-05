@@ -45,7 +45,7 @@ export default function BoucleEvts() {
     }, [perso, setPerso]);
 
     const determinerEvtSuivant = useCallback(() => {
-        leTempsPasse(perso, executerEvt);
+        leTempsPasse(perso);
         setPerso({
             ...perso,
         });

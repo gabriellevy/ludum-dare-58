@@ -1,10 +1,11 @@
 import {useContext, useEffect, useMemo, useRef, useState} from "react";
-import {devant, fond, persoMarche} from "../donnees/images";
+import {devant, escargot, fond, persoMarche} from "../donnees/images";
 import {PersoContexte, PersoContexteType} from "../contexte/ContexteType";
 import {calculerVitessePerso} from "../fonctions/Perso";
 import {Box} from "@mui/material";
 import {compterNbDeChampisEnDigestion} from "../fonctions/Champignons";
 import {ChampignonEnum} from "../types/Champignon";
+import {Forme} from "../types/Perso";
 
 type FloatingText = {
     id: number;
@@ -84,7 +85,7 @@ function Decor({messageFondu}: Readonly<DecorProps>) {
     }, [floatingTexts]);
 
     const persoTransform:string = useMemo(() =>
-        compterNbDeChampisEnDigestion(perso, ChampignonEnum.LactariusDeliciosus) % 2 === 1 ?
+        compterNbDeChampisEnDigestion(perso, ChampignonEnum.Confused_Snail) % 2 === 1 ?
             'translateY(-50%) scale(-1, 1)' :
             'translateY(-50%) scale(1, 1)'
     , [perso]);
@@ -144,7 +145,7 @@ function Decor({messageFondu}: Readonly<DecorProps>) {
                     transform: persoTransform,
                 }}
                 alt="Personnage qui marche"
-                src={persoMarche}
+                src={perso.forme === Forme.escargot ? escargot : persoMarche}
             />
             <div
                 style={{

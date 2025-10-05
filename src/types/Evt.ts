@@ -1,10 +1,5 @@
 import {Perso} from "./Perso";
 
-export type EvtProgramme = {
-    evt: Evt,
-    distance: number, // distance à laquelle l'evt se déclenche
-}
-
 export type Evt = {
     id: string;
     description: (perso: Perso) => Promise<string>;  // modifie le perso et retourne la description de l'evt
