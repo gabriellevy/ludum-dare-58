@@ -174,6 +174,8 @@ export default function Jeu() {
                             <Decor messageFondu={messageFondu}/>
                             <Progression/>
                             <Box sx={{
+                                maxHeight: '180px',
+                                height: '180px',
                                 padding: 1,
                                 flexGrow: 1, // Prend l'espace restant
                                 overflow: 'auto', // Active le scroll uniquement ici
@@ -182,10 +184,10 @@ export default function Jeu() {
                             </Box>
                             <Box sx={{
                                 padding: 1,
-                                flexGrow: 1, // Prend l'espace restant
                                 overflow: 'auto', // Active le scroll uniquement ici
                                 backgroundColor: '#71f178',
-                                maxHeight: '250px',
+                                maxHeight: '180px',
+                                height: '180px',
                                 borderRadius: '16px', // Optionnel : coins arrondis
                             }}>
                                 <BoucleEvts/>
