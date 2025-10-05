@@ -23,7 +23,11 @@ export default function AffichagePerso() {
             {
                 perso.digestion.map((champi: Champignon) => {
                     return (
-                        <Box>
+                        <Box
+                            sx={{
+                            display: 'flex',
+                            fontSize: 12,
+                         }}>
                             <Box
                                 component="img"
                                 sx={{
@@ -34,12 +38,15 @@ export default function AffichagePerso() {
                                 alt={champi.nom}
                                 src={champi.imageSrc}
                             />
+                            <Box>
                             {
                                 champi.description
                             }
+                            <br/>
                             ({
                                 champi.secondesDEffet
                             } s)
+                            </Box>
                         </Box>
                 )
                 })
