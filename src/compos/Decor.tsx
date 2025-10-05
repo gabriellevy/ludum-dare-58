@@ -1,7 +1,10 @@
-import {useContext, useEffect, useRef, useState} from "react";
+import {useContext, useEffect, useMemo, useRef, useState} from "react";
 import {devant, fond, persoMarche} from "../donnees/images";
 import {PersoContexte, PersoContexteType} from "../contexte/ContexteType";
 import {calculerVitessePerso} from "../fonctions/Perso";
+import {Box} from "@mui/material";
+import {compterNbDeChampisEnDigestion} from "../fonctions/Champignons";
+import {ChampignonEnum} from "../types/Champignon";
 
 type FloatingText = {
     id: number;
@@ -21,6 +24,8 @@ function Decor({messageFondu}: Readonly<DecorProps>) {
     const containerRef = useRef<HTMLDivElement>(null);
     const textIdRef = useRef<number>(0);
     const { perso } = useContext(PersoContexte) as PersoContexteType;
+
+    const grand = useMemo(() => compterNbDeChampisEnDigestion(perso, ChampignonEnum.AmanitaMuscaria), [perso]);
 
     useEffect(() => {
         const container = containerRef.current;
@@ -115,18 +120,19 @@ function Decor({messageFondu}: Readonly<DecorProps>) {
             ))
             }
             {/* Personnage (entre les couches) */}
-            <img
-                src={persoMarche}
-                alt="Personnage qui marche"
-                style={{
+            <Box
+                component="img"
+                sx={{
                     position: 'absolute',
                     left: characterPosition.x,
                     top: characterPosition.y,
-                    width: '80px',
+                    width: grand ? '200px' : '80px',
                     height: 'auto',
                     zIndex: 2,
-                    transform: 'translateY(-50%)', // Centre verticalement
+                    transform: 'translateY(-50%) scale(1, 1)', // Centre verticalement
                 }}
+                alt="Personnage qui marche"
+                src={persoMarche}
             />
             <div
                 style={{

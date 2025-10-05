@@ -6,7 +6,7 @@ import Decor from "./Decor";
 import BoucleEvts from "./BoucleEvts";
 import {createTheme, ThemeProvider} from "@mui/material/styles";
 import Boutons from "./Boutons";
-import AffichagePerso from "./AffichagePerso";
+import AffichageDigestion from "./AffichageDigestion";
 import Progression from "./Progression";
 import {GameOverOverlay} from "./GameOverOverlay";
 import {initPerso} from "../App";
@@ -88,7 +88,7 @@ export default function Jeu() {
             ) : perso.phaseDExecution === PhaseDExecution.marche && (
                 <Grid container sx={{ height: '100vh', width: '100vw' }}>
                     <Grid size={4}>
-                        <AffichagePerso />
+                        <AffichageDigestion />
                     </Grid>
                     <Grid size={8}>
                         <Box

@@ -4,7 +4,7 @@ import Jauge from "./Jauge";
 import {PersoContexte, PersoContexteType} from "../contexte/ContexteType";
 import {Champignon} from "../types/Champignon";
 
-export default function AffichagePerso() {
+export default function AffichageDigestion() {
 
     const { perso } = useContext(PersoContexte) as PersoContexteType;
 
