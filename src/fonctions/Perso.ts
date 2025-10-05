@@ -9,6 +9,9 @@ export function calculerVitessePerso(perso:Perso): number {
         vitesse += 2;
     }
     vitesse -= compterNbDeChampisEnDigestion(perso, ChampignonEnum.Poison) * 2;
+    if (perso.nuit && perso.forme !== Forme.lynx) {
+        vitesse -= 2;
+    }
 
     if (vitesse < 1) vitesse = 0;
 
